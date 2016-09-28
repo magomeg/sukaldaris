@@ -1,0 +1,4 @@
+sukaldaris_info:
+    resource: "@SukaldarisInfoBundle/Resources/config/routing.yml"
+    prefix:   /
+

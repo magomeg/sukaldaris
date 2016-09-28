@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'ExistenceLight';
+
+  src: url('../fonts/Existence-Light-webfont.ttf');
+  
+}
+*{
+	font-family: 'ExistenceLight';
+
+}
+.navbar-collapse{
+	float: right;
+}
+.navbar{
+	background-color: rgb(212,220,235);
+	min-height: 50px;
+	font-weight: bold;
+}
+.navbar-inverse .navbar-nav>li>a{
+	color: rgb(70,106,171);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+	background-color: rgb(70,106,171);
+}
+.navbar-brand {
+	font-size: 140%;
+}

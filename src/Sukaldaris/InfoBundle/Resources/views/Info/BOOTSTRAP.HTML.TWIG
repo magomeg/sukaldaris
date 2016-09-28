@@ -1,0 +1,577 @@
+{# src/Sukaldaris/InfoBundle/Resources/views/Info/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Bootstrap core CSS -->
+    
+
+{% endblock %}
+
+{% block body %}
+    
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1 >¡Hola, mundo!</h1>
+        <p data-replace-tmp-key="75ef47b498a2f87541207e46019b323e"><os-p key="75ef47b498a2f87541207e46019b323e">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</os-p></p>
+        <p><a href="#" class="btn btn-primary btn-lg" role="button" data-replace-tmp-key="0fc1f806e4591946e53b4dd0f08a50a0"><os-p key="0fc1f806e4591946e53b4dd0f08a50a0">Learn more &raquo;</os-p></a></p>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="5b3ec15499a125805b5bbf8e4afcec8c"><os-p key="5b3ec15499a125805b5bbf8e4afcec8c">Botones</os-p></h1>
+      </div>
+      <p>
+        <button type="button" class="btn btn-lg btn-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></button>
+        <button type="button" class="btn btn-lg btn-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></button>
+        <button type="button" class="btn btn-lg btn-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></button>
+        <button type="button" class="btn btn-lg btn-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></button>
+        <button type="button" class="btn btn-lg btn-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></button>
+        <button type="button" class="btn btn-lg btn-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></button>
+        <button type="button" class="btn btn-lg btn-link" data-replace-tmp-key="97e7c9a7d06eac006a28bf05467fcc8b"><os-p key="97e7c9a7d06eac006a28bf05467fcc8b">Enlace</os-p></button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></button>
+        <button type="button" class="btn btn-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></button>
+        <button type="button" class="btn btn-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></button>
+        <button type="button" class="btn btn-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></button>
+        <button type="button" class="btn btn-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></button>
+        <button type="button" class="btn btn-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></button>
+        <button type="button" class="btn btn-link" data-replace-tmp-key="97e7c9a7d06eac006a28bf05467fcc8b"><os-p key="97e7c9a7d06eac006a28bf05467fcc8b">Enlace</os-p></button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-sm btn-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></button>
+        <button type="button" class="btn btn-sm btn-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></button>
+        <button type="button" class="btn btn-sm btn-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></button>
+        <button type="button" class="btn btn-sm btn-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></button>
+        <button type="button" class="btn btn-sm btn-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></button>
+        <button type="button" class="btn btn-sm btn-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></button>
+        <button type="button" class="btn btn-sm btn-link" data-replace-tmp-key="97e7c9a7d06eac006a28bf05467fcc8b"><os-p key="97e7c9a7d06eac006a28bf05467fcc8b">Enlace</os-p></button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-xs btn-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></button>
+        <button type="button" class="btn btn-xs btn-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></button>
+        <button type="button" class="btn btn-xs btn-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></button>
+        <button type="button" class="btn btn-xs btn-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></button>
+        <button type="button" class="btn btn-xs btn-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></button>
+        <button type="button" class="btn btn-xs btn-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></button>
+        <button type="button" class="btn btn-xs btn-link" data-replace-tmp-key="97e7c9a7d06eac006a28bf05467fcc8b"><os-p key="97e7c9a7d06eac006a28bf05467fcc8b">Enlace</os-p></button>
+      </p>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="651ae5789ab776f2fcaf80b5e62801dc"><os-p key="651ae5789ab776f2fcaf80b5e62801dc">Cuadros</os-p></h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-replace-tmp-key="bc910f8bdf70f29374f496f05be0330c"><os-p key="bc910f8bdf70f29374f496f05be0330c">Nombre</os-p></th>
+                <th data-replace-tmp-key="77587239bf4c54ea493c7033e1dbf636"><os-p key="77587239bf4c54ea493c7033e1dbf636">Apellido</os-p></th>
+                <th data-replace-tmp-key="f6039d44b29456b20f8f373155ae4973"><os-p key="f6039d44b29456b20f8f373155ae4973">Nombre de usuario</os-p></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td data-replace-tmp-key="b82a9a13f4651e9abcbde90cd24ce2cb"><os-p key="b82a9a13f4651e9abcbde90cd24ce2cb">Mark</os-p></td>
+                <td data-replace-tmp-key="846ebd7315632b4efd778655c824ebd8"><os-p key="846ebd7315632b4efd778655c824ebd8">Otto</os-p></td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td data-replace-tmp-key="9adb41f2a66506c7e816424b455ad5ff"><os-p key="9adb41f2a66506c7e816424b455ad5ff">Jacob</os-p></td>
+                <td data-replace-tmp-key="e374e28a5e0e656af6b1d7e2f25e8b2c"><os-p key="e374e28a5e0e656af6b1d7e2f25e8b2c">Thornton</os-p></td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td data-replace-tmp-key="4debfdb23bf13d11084b5f6f42f93b89"><os-p key="4debfdb23bf13d11084b5f6f42f93b89">Larry</os-p></td>
+                <td data-replace-tmp-key="e91bca70607b59a3cdb416f4e7c72341"><os-p key="e91bca70607b59a3cdb416f4e7c72341">the Bird</os-p></td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-replace-tmp-key="bc910f8bdf70f29374f496f05be0330c"><os-p key="bc910f8bdf70f29374f496f05be0330c">Nombre</os-p></th>
+                <th data-replace-tmp-key="77587239bf4c54ea493c7033e1dbf636"><os-p key="77587239bf4c54ea493c7033e1dbf636">Apellido</os-p></th>
+                <th data-replace-tmp-key="f6039d44b29456b20f8f373155ae4973"><os-p key="f6039d44b29456b20f8f373155ae4973">Nombre de usuario</os-p></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td data-replace-tmp-key="b82a9a13f4651e9abcbde90cd24ce2cb"><os-p key="b82a9a13f4651e9abcbde90cd24ce2cb">Mark</os-p></td>
+                <td data-replace-tmp-key="846ebd7315632b4efd778655c824ebd8"><os-p key="846ebd7315632b4efd778655c824ebd8">Otto</os-p></td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td data-replace-tmp-key="9adb41f2a66506c7e816424b455ad5ff"><os-p key="9adb41f2a66506c7e816424b455ad5ff">Jacob</os-p></td>
+                <td data-replace-tmp-key="e374e28a5e0e656af6b1d7e2f25e8b2c"><os-p key="e374e28a5e0e656af6b1d7e2f25e8b2c">Thornton</os-p></td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td data-replace-tmp-key="4debfdb23bf13d11084b5f6f42f93b89"><os-p key="4debfdb23bf13d11084b5f6f42f93b89">Larry</os-p></td>
+                <td data-replace-tmp-key="e91bca70607b59a3cdb416f4e7c72341"><os-p key="e91bca70607b59a3cdb416f4e7c72341">the Bird</os-p></td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-replace-tmp-key="bc910f8bdf70f29374f496f05be0330c"><os-p key="bc910f8bdf70f29374f496f05be0330c">Nombre</os-p></th>
+                <th data-replace-tmp-key="77587239bf4c54ea493c7033e1dbf636"><os-p key="77587239bf4c54ea493c7033e1dbf636">Apellido</os-p></th>
+                <th data-replace-tmp-key="f6039d44b29456b20f8f373155ae4973"><os-p key="f6039d44b29456b20f8f373155ae4973">Nombre de usuario</os-p></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">1</td>
+                <td data-replace-tmp-key="b82a9a13f4651e9abcbde90cd24ce2cb"><os-p key="b82a9a13f4651e9abcbde90cd24ce2cb">Mark</os-p></td>
+                <td data-replace-tmp-key="846ebd7315632b4efd778655c824ebd8"><os-p key="846ebd7315632b4efd778655c824ebd8">Otto</os-p></td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td data-replace-tmp-key="b82a9a13f4651e9abcbde90cd24ce2cb"><os-p key="b82a9a13f4651e9abcbde90cd24ce2cb">Mark</os-p></td>
+                <td data-replace-tmp-key="846ebd7315632b4efd778655c824ebd8"><os-p key="846ebd7315632b4efd778655c824ebd8">Otto</os-p></td>
+                <td>@TwBootstrap</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td data-replace-tmp-key="9adb41f2a66506c7e816424b455ad5ff"><os-p key="9adb41f2a66506c7e816424b455ad5ff">Jacob</os-p></td>
+                <td data-replace-tmp-key="e374e28a5e0e656af6b1d7e2f25e8b2c"><os-p key="e374e28a5e0e656af6b1d7e2f25e8b2c">Thornton</os-p></td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2" data-replace-tmp-key="1b423c8680ea9d89ec5cc155034a1551"><os-p key="1b423c8680ea9d89ec5cc155034a1551">Larry the Bird</os-p></td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-replace-tmp-key="bc910f8bdf70f29374f496f05be0330c"><os-p key="bc910f8bdf70f29374f496f05be0330c">Nombre</os-p></th>
+                <th data-replace-tmp-key="77587239bf4c54ea493c7033e1dbf636"><os-p key="77587239bf4c54ea493c7033e1dbf636">Apellido</os-p></th>
+                <th data-replace-tmp-key="f6039d44b29456b20f8f373155ae4973"><os-p key="f6039d44b29456b20f8f373155ae4973">Nombre de usuario</os-p></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td data-replace-tmp-key="b82a9a13f4651e9abcbde90cd24ce2cb"><os-p key="b82a9a13f4651e9abcbde90cd24ce2cb">Mark</os-p></td>
+                <td data-replace-tmp-key="846ebd7315632b4efd778655c824ebd8"><os-p key="846ebd7315632b4efd778655c824ebd8">Otto</os-p></td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td data-replace-tmp-key="9adb41f2a66506c7e816424b455ad5ff"><os-p key="9adb41f2a66506c7e816424b455ad5ff">Jacob</os-p></td>
+                <td data-replace-tmp-key="e374e28a5e0e656af6b1d7e2f25e8b2c"><os-p key="e374e28a5e0e656af6b1d7e2f25e8b2c">Thornton</os-p></td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2" data-replace-tmp-key="1b423c8680ea9d89ec5cc155034a1551"><os-p key="1b423c8680ea9d89ec5cc155034a1551">Larry the Bird</os-p></td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="acc66e14d297c1bfc20986bf593cb054"><os-p key="acc66e14d297c1bfc20986bf593cb054">Miniaturas</os-p></h1>
+      </div>
+      <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="3ad6cb6100190c8f81e99fd52debf7ef"><os-p key="3ad6cb6100190c8f81e99fd52debf7ef">Rótulos</os-p></h1>
+      </div>
+      <h1>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h1>
+      <h2>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h2>
+      <h3>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h3>
+      <h4>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h4>
+      <h5>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h5>
+      <h6>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </h6>
+      <p>
+        <span class="label label-default" data-replace-tmp-key="7a1920d61156abc05a60135aefe8bc67"><os-p key="7a1920d61156abc05a60135aefe8bc67">Configuración predeterminada</os-p></span>
+        <span class="label label-primary" data-replace-tmp-key="074de7e7c226d5c60f8af14c20725352"><os-p key="074de7e7c226d5c60f8af14c20725352">Configuración primaria</os-p></span>
+        <span class="label label-success" data-replace-tmp-key="505a83f220c02df2f85c3810cd9ceb38"><os-p key="505a83f220c02df2f85c3810cd9ceb38">Éxito</os-p></span>
+        <span class="label label-info" data-replace-tmp-key="4059b0251f66a18cb56f544728796875"><os-p key="4059b0251f66a18cb56f544728796875">Info</os-p></span>
+        <span class="label label-warning" data-replace-tmp-key="0eaadb4fcb48a0a0ed7bc9868be9fbaa"><os-p key="0eaadb4fcb48a0a0ed7bc9868be9fbaa">Advertencia</os-p></span>
+        <span class="label label-danger" data-replace-tmp-key="990816b607ebf99b1415760965e4d564"><os-p key="990816b607ebf99b1415760965e4d564">Peligro</os-p></span>
+      </p>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="ff5627f178b47dbd65d0cc229a956c4e"><os-p key="ff5627f178b47dbd65d0cc229a956c4e">Insignias</os-p></h1>
+      </div>
+      <p>
+        <a href="#" data-replace-tmp-key="4a0ae40f416a9d8be98c33b93f6adcbf"><os-p key="4a0ae40f416a9d8be98c33b93f6adcbf">Buzón <span class="badge">42</span></os-p></a>
+      </p>
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#" data-replace-tmp-key="bddaa7a26b8a10d8d45cdc422e7d9dde"><os-p key="bddaa7a26b8a10d8d45cdc422e7d9dde">Página inicial <span class="badge">42</span></os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="cce99c598cfdb9773ab041d54c3d973a"><os-p key="cce99c598cfdb9773ab041d54c3d973a">Perfil</os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="63034d1a2a278ec4ad5f9a0da0b31e07"><os-p key="63034d1a2a278ec4ad5f9a0da0b31e07">Mensajes <span class="badge">3</span></os-p></a></li>
+      </ul>
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="cc20fe4cc35d25980116211d4c618cae"><os-p key="cc20fe4cc35d25980116211d4c618cae">Dropdown menus</os-p></h1>
+      </div>
+      <div class="dropdown theme-dropdown clearfix">
+        <a id="dropdownMenu1" href="#" role="button" class="sr-only dropdown-toggle" data-toggle="dropdown" data-replace-tmp-key="6be2458a7786d2dfdb6b72d7583e8104"><os-p key="6be2458a7786d2dfdb6b72d7583e8104">Desplegable <span class="caret"></span></os-p></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li class="active" role="presentation"><a role="menuitem" tabindex="-1" href="#" data-replace-tmp-key="004bf6c9a40003140292e97330236c53"><os-p key="004bf6c9a40003140292e97330236c53">Acción</os-p></a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-replace-tmp-key="c396653502927eea9f0fc260a1465518"><os-p key="c396653502927eea9f0fc260a1465518">Otra acción</os-p></a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-replace-tmp-key="71e7f655e2bbd0d97e8c376a4ed5af03"><os-p key="71e7f655e2bbd0d97e8c376a4ed5af03">Algo más aquí</os-p></a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-replace-tmp-key="112cd6710bd31b37dd32719c2d37191e"><os-p key="112cd6710bd31b37dd32719c2d37191e">Enlace separado</os-p></a></li>
+        </ul>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="619975c3f08b9cf8fb5c4e5affe5f4f5"><os-p key="619975c3f08b9cf8fb5c4e5affe5f4f5">Elementos de navegación</os-p></h1>
+      </div>
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#" data-replace-tmp-key="8cf04a9734132302f96da8e113e80ce5"><os-p key="8cf04a9734132302f96da8e113e80ce5">Página inicial</os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="cce99c598cfdb9773ab041d54c3d973a"><os-p key="cce99c598cfdb9773ab041d54c3d973a">Perfil</os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="41de6d6cfb8953c021bbe4ba0701c8a1"><os-p key="41de6d6cfb8953c021bbe4ba0701c8a1">Mensajes</os-p></a></li>
+      </ul>
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#" data-replace-tmp-key="8cf04a9734132302f96da8e113e80ce5"><os-p key="8cf04a9734132302f96da8e113e80ce5">Página inicial</os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="cce99c598cfdb9773ab041d54c3d973a"><os-p key="cce99c598cfdb9773ab041d54c3d973a">Perfil</os-p></a></li>
+        <li><a href="#" data-replace-tmp-key="41de6d6cfb8953c021bbe4ba0701c8a1"><os-p key="41de6d6cfb8953c021bbe4ba0701c8a1">Mensajes</os-p></a></li>
+      </ul>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="9a750e182d8dd9c7e655591a6a1b9b2a"><os-p key="9a750e182d8dd9c7e655591a6a1b9b2a">Navbars</os-p></h1>
+      </div>
+
+      <div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only" data-replace-tmp-key="6c7195551da0802a39b5e2bc7187df54"><os-p key="6c7195551da0802a39b5e2bc7187df54">Conmutar la navegación</os-p></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" data-replace-tmp-key="7adea0d9c77aabccd8bb67ae0a832d59"><os-p key="7adea0d9c77aabccd8bb67ae0a832d59">bcaterthugz</os-p></a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" data-replace-tmp-key="8cf04a9734132302f96da8e113e80ce5"><os-p key="8cf04a9734132302f96da8e113e80ce5">Página inicial</os-p></a></li>
+              <li><a href="#about" data-replace-tmp-key="8f7f4c1ce7a4f933663d10543562b096"><os-p key="8f7f4c1ce7a4f933663d10543562b096">Explicación</os-p></a></li>
+              <li><a href="#contact" data-replace-tmp-key="bbaff12800505b22a853e8b7f4eb6a22"><os-p key="bbaff12800505b22a853e8b7f4eb6a22">Contact</os-p></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-replace-tmp-key="6be2458a7786d2dfdb6b72d7583e8104"><os-p key="6be2458a7786d2dfdb6b72d7583e8104">Desplegable <span class="caret"></span></os-p></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#" data-replace-tmp-key="004bf6c9a40003140292e97330236c53"><os-p key="004bf6c9a40003140292e97330236c53">Acción</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="c396653502927eea9f0fc260a1465518"><os-p key="c396653502927eea9f0fc260a1465518">Otra acción</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="71e7f655e2bbd0d97e8c376a4ed5af03"><os-p key="71e7f655e2bbd0d97e8c376a4ed5af03">Algo más aquí</os-p></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header" data-replace-tmp-key="98b396110915919be9b53f0c37aaafda"><os-p key="98b396110915919be9b53f0c37aaafda">Nav header</os-p></li>
+                  <li><a href="#" data-replace-tmp-key="112cd6710bd31b37dd32719c2d37191e"><os-p key="112cd6710bd31b37dd32719c2d37191e">Enlace separado</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="0006e15256c2d7dba40f61bd9956ec60"><os-p key="0006e15256c2d7dba40f61bd9956ec60">Un enlace más separado</os-p></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <div class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only" data-replace-tmp-key="6c7195551da0802a39b5e2bc7187df54"><os-p key="6c7195551da0802a39b5e2bc7187df54">Conmutar la navegación</os-p></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" data-replace-tmp-key="7adea0d9c77aabccd8bb67ae0a832d59"><os-p key="7adea0d9c77aabccd8bb67ae0a832d59">bcaterthugz</os-p></a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" data-replace-tmp-key="8cf04a9734132302f96da8e113e80ce5"><os-p key="8cf04a9734132302f96da8e113e80ce5">Página inicial</os-p></a></li>
+              <li><a href="#about" data-replace-tmp-key="8f7f4c1ce7a4f933663d10543562b096"><os-p key="8f7f4c1ce7a4f933663d10543562b096">Explicación</os-p></a></li>
+              <li><a href="#contact" data-replace-tmp-key="bbaff12800505b22a853e8b7f4eb6a22"><os-p key="bbaff12800505b22a853e8b7f4eb6a22">Contact</os-p></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-replace-tmp-key="6be2458a7786d2dfdb6b72d7583e8104"><os-p key="6be2458a7786d2dfdb6b72d7583e8104">Desplegable <span class="caret"></span></os-p></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#" data-replace-tmp-key="004bf6c9a40003140292e97330236c53"><os-p key="004bf6c9a40003140292e97330236c53">Acción</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="c396653502927eea9f0fc260a1465518"><os-p key="c396653502927eea9f0fc260a1465518">Otra acción</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="71e7f655e2bbd0d97e8c376a4ed5af03"><os-p key="71e7f655e2bbd0d97e8c376a4ed5af03">Algo más aquí</os-p></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header" data-replace-tmp-key="98b396110915919be9b53f0c37aaafda"><os-p key="98b396110915919be9b53f0c37aaafda">Nav header</os-p></li>
+                  <li><a href="#" data-replace-tmp-key="112cd6710bd31b37dd32719c2d37191e"><os-p key="112cd6710bd31b37dd32719c2d37191e">Enlace separado</os-p></a></li>
+                  <li><a href="#" data-replace-tmp-key="0006e15256c2d7dba40f61bd9956ec60"><os-p key="0006e15256c2d7dba40f61bd9956ec60">Un enlace más separado</os-p></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="df583ae7ba964fd4806b55904da81813"><os-p key="df583ae7ba964fd4806b55904da81813">Alertas</os-p></h1>
+      </div>
+      <div class="alert alert-success" role="alert" data-replace-tmp-key="eb3db195c7a559056c4174da27a758b1"><os-p key="eb3db195c7a559056c4174da27a758b1"><strong>¡Muy bien!</strong> Logró leer correctamente este importante mensaje de alerta.</os-p></div>
+      <div class="alert alert-info" role="alert" data-replace-tmp-key="7ac4fd1a944edb21bf0ad015a57d589f"><os-p key="7ac4fd1a944edb21bf0ad015a57d589f"><strong>¡Más información! </strong>Esta alerta requiere su atención, pero no es muy importante.</os-p></div>
+      <div class="alert alert-warning" role="alert" data-replace-tmp-key="e5c56e3efe7ae8a11e64964cccf761a6"><os-p key="e5c56e3efe7ae8a11e64964cccf761a6"><strong>Warning!</strong> Best check yo self, you're not looking too good.</os-p></div>
+      <div class="alert alert-danger" role="alert" data-replace-tmp-key="c2575bd681d2d3dc06162fd79acd976e"><os-p key="c2575bd681d2d3dc06162fd79acd976e"><strong>¡Oh, cielos!</strong> Cambie unas pocas cosas e inténtelo nuevamente.</os-p></div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="466bb9f5b168eda3cbcfbe8914d67d69"><os-p key="466bb9f5b168eda3cbcfbe8914d67d69">Barras de avance</os-p></h1>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only" data-replace-tmp-key="ee7bea9e7074e5b8ace0b0ed2767f0af"><os-p key="ee7bea9e7074e5b8ace0b0ed2767f0af">Completo en 60 %</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only" data-replace-tmp-key="a2481c9da24b1ceb52b22cf97424384e"><os-p key="a2481c9da24b1ceb52b22cf97424384e">Completo en 40 % (éxito)</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only" data-replace-tmp-key="f624c10f9feada4dcd961caa7a38adf6"><os-p key="f624c10f9feada4dcd961caa7a38adf6">Completo en 20 %</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only" data-replace-tmp-key="21995e0ebed81cfcd7f46156a6f3ee9b"><os-p key="21995e0ebed81cfcd7f46156a6f3ee9b">Completo en 60 % (advertencia)</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only" data-replace-tmp-key="7407a65c909e00c2874ed5a82cd211c8"><os-p key="7407a65c909e00c2874ed5a82cd211c8">Completo en 80 % (peligro)</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only" data-replace-tmp-key="a35d98d8f31a3aedb9344d44a96e7162"><os-p key="a35d98d8f31a3aedb9344d44a96e7162">100% Complete</os-p></span></div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only" data-replace-tmp-key="15643903208a04b7fc5bfdb154a413a8"><os-p key="15643903208a04b7fc5bfdb154a413a8">Completo en 35 % (éxito)</os-p></span></div>
+        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only" data-replace-tmp-key="93fb6cbe02a3a5fe18b5e065cf8dc1ec"><os-p key="93fb6cbe02a3a5fe18b5e065cf8dc1ec">Completo en 20 % (advertencia)</os-p></span></div>
+        <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only" data-replace-tmp-key="3797b330e6f337b5addf802b68343ff3"><os-p key="3797b330e6f337b5addf802b68343ff3">Completo en 10 % (peligro)</os-p></span></div>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="dcb57261e9d2f820af7e07e7582a0d1c"><os-p key="dcb57261e9d2f820af7e07e7582a0d1c">Grupos de listas</os-p></h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item" data-replace-tmp-key="fcd3dcec548e81f10bcf9b14eefe6b30"><os-p key="fcd3dcec548e81f10bcf9b14eefe6b30">Cras justo odio</os-p></li>
+            <li class="list-group-item" data-replace-tmp-key="25322ce9801c3cdfbdc60aa42684eaf4"><os-p key="25322ce9801c3cdfbdc60aa42684eaf4">Dapibus ac facilisis in</os-p></li>
+            <li class="list-group-item" data-replace-tmp-key="c5c2157424a75af18b0eb18f084aeedc"><os-p key="c5c2157424a75af18b0eb18f084aeedc">Morbi leo risus</os-p></li>
+            <li class="list-group-item" data-replace-tmp-key="50a8b10f075934fbfc0dee992ea2980d"><os-p key="50a8b10f075934fbfc0dee992ea2980d">Porta ac consectetur ac</os-p></li>
+            <li class="list-group-item" data-replace-tmp-key="146774a44244076db9f94be8ed61fc0a"><os-p key="146774a44244076db9f94be8ed61fc0a">Vestibulum at eros</os-p></li>
+          </ul>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item active" data-replace-tmp-key="fcd3dcec548e81f10bcf9b14eefe6b30"><os-p key="fcd3dcec548e81f10bcf9b14eefe6b30">Cras justo odio</os-p></a>
+            <a href="#" class="list-group-item" data-replace-tmp-key="25322ce9801c3cdfbdc60aa42684eaf4"><os-p key="25322ce9801c3cdfbdc60aa42684eaf4">Dapibus ac facilisis in</os-p></a>
+            <a href="#" class="list-group-item" data-replace-tmp-key="c5c2157424a75af18b0eb18f084aeedc"><os-p key="c5c2157424a75af18b0eb18f084aeedc">Morbi leo risus</os-p></a>
+            <a href="#" class="list-group-item" data-replace-tmp-key="50a8b10f075934fbfc0dee992ea2980d"><os-p key="50a8b10f075934fbfc0dee992ea2980d">Porta ac consectetur ac</os-p></a>
+            <a href="#" class="list-group-item" data-replace-tmp-key="146774a44244076db9f94be8ed61fc0a"><os-p key="146774a44244076db9f94be8ed61fc0a">Vestibulum at eros</os-p></a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <h4 class="list-group-item-heading" data-replace-tmp-key="5c94f93963b8237c702b5a7d4f9725a0"><os-p key="5c94f93963b8237c702b5a7d4f9725a0">Encabezado de ítem de grupos de listas</os-p></h4>
+              <p class="list-group-item-text" data-replace-tmp-key="08c8de9a4deaffaecc7339963b2859eb"><os-p key="08c8de9a4deaffaecc7339963b2859eb">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</os-p></p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading" data-replace-tmp-key="5c94f93963b8237c702b5a7d4f9725a0"><os-p key="5c94f93963b8237c702b5a7d4f9725a0">Encabezado de ítem de grupos de listas</os-p></h4>
+              <p class="list-group-item-text" data-replace-tmp-key="08c8de9a4deaffaecc7339963b2859eb"><os-p key="08c8de9a4deaffaecc7339963b2859eb">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</os-p></p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading" data-replace-tmp-key="5c94f93963b8237c702b5a7d4f9725a0"><os-p key="5c94f93963b8237c702b5a7d4f9725a0">Encabezado de ítem de grupos de listas</os-p></h4>
+              <p class="list-group-item-text" data-replace-tmp-key="08c8de9a4deaffaecc7339963b2859eb"><os-p key="08c8de9a4deaffaecc7339963b2859eb">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</os-p></p>
+            </a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="56797cefb1efc9130f7c48a7d1db0f0c"><os-p key="56797cefb1efc9130f7c48a7d1db0f0c">Paneles</os-p></h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title" data-replace-tmp-key="8834a47e782911b35cf14b8ec9fe779f"><os-p key="8834a47e782911b35cf14b8ec9fe779f">Título de panel</os-p></h3>
+            </div>
+            <div class="panel-body" data-replace-tmp-key="2232d4ace5cac75ee4791bbef442735e"><os-p key="2232d4ace5cac75ee4791bbef442735e">Contenido de panel</os-p></div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="b9707a274c0937b0e4cd0f4ab1dbd593"><os-p key="b9707a274c0937b0e4cd0f4ab1dbd593">Pozos</os-p></h1>
+      </div>
+      <div class="well">
+        <p data-replace-tmp-key="de38191e98af1752e8306abf6aa6ee38"><os-p key="de38191e98af1752e8306abf6aa6ee38">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</os-p></p>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1 data-replace-tmp-key="225bf3d9290b5f536b2e442259e78652"><os-p key="225bf3d9290b5f536b2e442259e78652">Bandeja circular</os-p></h1>
+      </div>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+
+
+    </div> <!-- /container -->
+
+   
+{% endblock %}
+{% block javascripts %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//getbootstrap.com/examples/theme/../../dist/js/bootstrap.min.js"></script>
+    <script src="//getbootstrap.com/examples/theme/../../assets/js/docs.min.js"></script>
+  <script class="os-tdn" type="text/javascript" src="//s3.amazonaws.com/oneskyapp.static/in-context/loader.min.js"></script><script type="text/javascript">OneSkyClientConfig = {apiKey: "U9aDnPz49ouz8J2CjMcAz74GppvQBGym",project: 19540,translate: true,locale: "es",xdReceiver: "http://www.oneskyapp.com/docs/xd_receiver.html"};</script>
+
+  {% endblock %}

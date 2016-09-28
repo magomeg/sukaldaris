@@ -1,0 +1,3 @@
+sukaldaris_info_homepage:
+    path:     /
+    defaults: { _controller: SukaldarisInfoBundle:Info:index }

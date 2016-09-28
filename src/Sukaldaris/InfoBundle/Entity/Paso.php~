@@ -1,0 +1,37 @@
+<?php
+// src/Sukaldaris/InfoBundle/Entity/Paso.php
+namespace Sukaldaris\InfoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+* @ORM\Entity
+* @ORM\Table(name="paso")
+*/
+
+class Paso
+{
+	/**
+	* @ORM\Id
+	* @ORM\Column(type="integer")
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+
+    /**
+    * @ORM\Column(type="integer")
+    */
+    protected $numeroPaso;
+
+	/**
+	* @ORM\Column(type="text")
+	*/
+	protected $texto;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Receta", inversedBy="pasos")
+     * @ORM\JoinColumn(name="id_receta", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $id_receta;
+
+    
+}

@@ -1,0 +1,25 @@
+<?php
+// src/Sukaldaris/InfoBundle/Entity/Utensilio.php
+namespace Sukaldaris\InfoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+* @ORM\Entity
+* @ORM\Table(name="utensilio")
+*/
+
+class Utensilio
+{
+	/**
+	* @ORM\Id
+	* @ORM\Column(type="integer")
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+
+	/**
+	* @ORM\Column(type="text")
+	*/
+	protected $nombre;
+
+}
