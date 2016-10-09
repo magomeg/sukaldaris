@@ -1,3 +1,6 @@
 sukaldaris_info_homepage:
     path:     /
     defaults: { _controller: SukaldarisInfoBundle:Info:index }
+sukaldaris_info_example:
+    path:     /example
+    defaults: { _controller: SukaldarisInfoBundle:Info:example }
