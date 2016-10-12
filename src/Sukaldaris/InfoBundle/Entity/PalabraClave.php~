@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 * @ORM\Table(name="palabraclave")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\PalabraClaveRepository")
 */
 
 class PalabraClave
@@ -62,5 +63,45 @@ class PalabraClave
     public function getPalabra()
     {
         return $this->palabra;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->recetas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add recetas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Receta $recetas
+     * @return PalabraClave
+     */
+    public function addReceta(\Sukaldaris\InfoBundle\Entity\Receta $recetas)
+    {
+        $this->recetas[] = $recetas;
+
+        return $this;
+    }
+
+    /**
+     * Remove recetas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Receta $recetas
+     */
+    public function removeReceta(\Sukaldaris\InfoBundle\Entity\Receta $recetas)
+    {
+        $this->recetas->removeElement($recetas);
+    }
+
+    /**
+     * Get recetas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecetas()
+    {
+        return $this->recetas;
     }
 }

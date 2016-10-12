@@ -1,0 +1,32 @@
+<?php
+// src/Sukaldaris/InfoBundle/Entity/Concept.php
+namespace Sukaldaris\InfoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+* @ORM\Entity
+* @ORM\Table(name="Concept")
+*/
+
+class Concept
+{
+	/**
+	* @ORM\Id
+	* @ORM\Column(type="integer")
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+
+	/**
+	* @ORM\Column(type="text")
+	*/
+	protected $concept;
+
+	/**
+    * @ORM\OneToMany(targetEntity="Subconcept", mappedBy="id_concept")
+    */
+	protected $values;
+
+    
+
+}

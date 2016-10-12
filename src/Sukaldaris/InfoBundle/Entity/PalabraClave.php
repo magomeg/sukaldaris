@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 * @ORM\Table(name="palabraclave")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\PalabraClaveRepository")
 */
 
 class PalabraClave

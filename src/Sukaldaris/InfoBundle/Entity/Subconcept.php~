@@ -1,0 +1,33 @@
+<?php
+// src/Sukaldaris/InfoBundle/Entity/Subconcept.php
+namespace Sukaldaris\InfoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+* @ORM\Entity
+* @ORM\Table(name="subconcept")
+*/
+
+class Subconcept
+{
+	/**
+	* @ORM\Id
+	* @ORM\Column(type="integer")
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+
+	/**
+	* @ORM\Column(type="text")
+	*/
+	protected $subconcept;
+
+	 /**
+     * @ORM\ManyToOne(targetEntity="Concept", inversedBy="values")
+     * @ORM\JoinColumn(name="id_concept", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $id_concept;
+
+    
+
+}

@@ -23,6 +23,8 @@ class Ingrediente
 	*/
 	protected $nombre;
 
+    
+
 
     /**
      * Get id
@@ -55,5 +57,45 @@ class Ingrediente
     public function getNombre()
     {
         return $this->nombre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subconcept = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subconcept
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Subconcept $subconcept
+     * @return Ingrediente
+     */
+    public function addSubconcept(\Sukaldaris\InfoBundle\Entity\Subconcept $subconcept)
+    {
+        $this->subconcept[] = $subconcept;
+
+        return $this;
+    }
+
+    /**
+     * Remove subconcept
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Subconcept $subconcept
+     */
+    public function removeSubconcept(\Sukaldaris\InfoBundle\Entity\Subconcept $subconcept)
+    {
+        $this->subconcept->removeElement($subconcept);
+    }
+
+    /**
+     * Get subconcept
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubconcept()
+    {
+        return $this->subconcept;
     }
 }
