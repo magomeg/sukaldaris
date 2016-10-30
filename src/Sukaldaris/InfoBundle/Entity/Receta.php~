@@ -14,6 +14,7 @@ class Receta
 	* @ORM\Id
 	* @ORM\Column(type="integer")
 	* @ORM\GeneratedValue(strategy="AUTO")
+    * @ORM\OneToMany(targetEntity="IngredientesRecetas", mappedBy="id_receta")
 	*/
 	protected $id;
 
@@ -53,6 +54,12 @@ class Receta
      */
     protected $id_chef;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="recetas")
+     * @ORM\JoinColumn(name="id_ategoria", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $id_categoria;
+
      /**
      * @ORM\ManyToMany(targetEntity="PalabraClave", mappedBy="recetas")
     * @ORM\JoinTable(name="palabras_recetas",
@@ -61,6 +68,24 @@ class Receta
      *      )
      */
     protected $palabras;
+
+     /**
+     * @ORM\ManyToMany(targetEntity="Tecnica", mappedBy="recetas")
+    * @ORM\JoinTable(name="tecnicas_recetas",
+     *      joinColumns={@ORM\JoinColumn(name="receta_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tecnica_id", referencedColumnName="id")}
+     *      )
+     */
+    protected $tecnicas;
+
+     /**
+     * @ORM\ManyToMany(targetEntity="Utensilio", mappedBy="recetas")
+    * @ORM\JoinTable(name="utensilios_recetas",
+     *      joinColumns={@ORM\JoinColumn(name="receta_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="utensilio_id", referencedColumnName="id")}
+     *      )
+     */
+    protected $utensilios;
 
     /**
     * @ORM\OneToMany(targetEntity="Paso", mappedBy="id_receta")
@@ -277,5 +302,38 @@ class Receta
     public function getPalabras()
     {
         return $this->palabras;
+    }
+
+    /**
+     * Add pasos
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Paso $pasos
+     * @return Receta
+     */
+    public function addPaso(\Sukaldaris\InfoBundle\Entity\Paso $pasos)
+    {
+        $this->pasos[] = $pasos;
+
+        return $this;
+    }
+
+    /**
+     * Remove pasos
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Paso $pasos
+     */
+    public function removePaso(\Sukaldaris\InfoBundle\Entity\Paso $pasos)
+    {
+        $this->pasos->removeElement($pasos);
+    }
+
+    /**
+     * Get pasos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPasos()
+    {
+        return $this->pasos;
     }
 }

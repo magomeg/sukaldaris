@@ -23,6 +23,11 @@ class Ingrediente
 	*/
 	protected $nombre;
 
+    /**
+    * @ORM\Column(type="float", scale="2")
+    */
+    protected $precio;
+
     
 
 

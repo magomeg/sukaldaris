@@ -54,6 +54,12 @@ class Receta
      */
     protected $id_chef;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="recetas")
+     * @ORM\JoinColumn(name="id_ategoria", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $id_categoria;
+
      /**
      * @ORM\ManyToMany(targetEntity="PalabraClave", mappedBy="recetas")
     * @ORM\JoinTable(name="palabras_recetas",
@@ -329,5 +335,94 @@ class Receta
     public function getPasos()
     {
         return $this->pasos;
+    }
+
+    /**
+     * Set id_categoria
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Categoria $idCategoria
+     * @return Receta
+     */
+    public function setIdCategoria(\Sukaldaris\InfoBundle\Entity\Categoria $idCategoria = null)
+    {
+        $this->id_categoria = $idCategoria;
+
+        return $this;
+    }
+
+    /**
+     * Get id_categoria
+     *
+     * @return \Sukaldaris\InfoBundle\Entity\Categoria 
+     */
+    public function getIdCategoria()
+    {
+        return $this->id_categoria;
+    }
+
+    /**
+     * Add tecnicas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Tecnica $tecnicas
+     * @return Receta
+     */
+    public function addTecnica(\Sukaldaris\InfoBundle\Entity\Tecnica $tecnicas)
+    {
+        $this->tecnicas[] = $tecnicas;
+
+        return $this;
+    }
+
+    /**
+     * Remove tecnicas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Tecnica $tecnicas
+     */
+    public function removeTecnica(\Sukaldaris\InfoBundle\Entity\Tecnica $tecnicas)
+    {
+        $this->tecnicas->removeElement($tecnicas);
+    }
+
+    /**
+     * Get tecnicas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTecnicas()
+    {
+        return $this->tecnicas;
+    }
+
+    /**
+     * Add utensilios
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Utensilio $utensilios
+     * @return Receta
+     */
+    public function addUtensilio(\Sukaldaris\InfoBundle\Entity\Utensilio $utensilios)
+    {
+        $this->utensilios[] = $utensilios;
+
+        return $this;
+    }
+
+    /**
+     * Remove utensilios
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Utensilio $utensilios
+     */
+    public function removeUtensilio(\Sukaldaris\InfoBundle\Entity\Utensilio $utensilios)
+    {
+        $this->utensilios->removeElement($utensilios);
+    }
+
+    /**
+     * Get utensilios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtensilios()
+    {
+        return $this->utensilios;
     }
 }
