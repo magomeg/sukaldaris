@@ -1,0 +1,3 @@
+sukaldaris_admin_homepage:
+    path:     /
+    defaults: { _controller: SukaldarisAdminBundle:Admin:index }
