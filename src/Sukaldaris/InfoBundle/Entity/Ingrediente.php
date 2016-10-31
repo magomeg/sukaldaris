@@ -24,7 +24,7 @@ class Ingrediente
 	protected $nombre;
 
     /**
-    * @ORM\Column(type="float", scale="2")
+    * @ORM\Column(type="float")
     */
     protected $precio;
 
@@ -66,4 +66,27 @@ class Ingrediente
     
 
    
+
+    /**
+     * Set precio
+     *
+     * @param float $precio
+     * @return Ingrediente
+     */
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+
+        return $this;
+    }
+
+    /**
+     * Get precio
+     *
+     * @return float 
+     */
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
 }

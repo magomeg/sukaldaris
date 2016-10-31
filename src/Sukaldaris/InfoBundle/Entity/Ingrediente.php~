@@ -23,6 +23,11 @@ class Ingrediente
 	*/
 	protected $nombre;
 
+    /**
+    * @ORM\Column(type="float")
+    */
+    protected $precio;
+
     
 
 
@@ -58,5 +63,7 @@ class Ingrediente
     {
         return $this->nombre;
     }
+    
+
    
 }
