@@ -15,17 +15,17 @@ class RecetaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titulo', 'text', array('label' => 'Título'))
-            ->add('fecha_publicacion', 'date', array('label' => 'Fecha publicación'))
-            ->add('dificultad', 'integer', array('label' => 'Dificultad'))
-            ->add('tiempo_cocinado', 'integer', array('label' => 'Dificultad'))
-            ->add('tiempo_preparacion', 'integer', array('label' => 'Dificultad'))
-            ->add('personas', 'integer', array('label' => 'Dificultad'))
-            ->add('id_chef')
+            ->add('titulo', 'text', array('label' => 'Título de la receta'))
+            ->add('dificultad', 'integer', array('label' => 'Nivel dificultad', 'required' => false) )
+            ->add('tiempo_cocinado', 'integer', array('label' => 'Tiempo de cocinado', 'required' => false))
+            ->add('tiempo_preparacion', 'integer', array('label' => 'Tiempo de preparación', 'required' => false))
+            ->add('personas', 'integer', array('label' => 'Personas', 'required' => false))
+            ->add('id_chef', null, array('label' => 'Chef', 'expanded' => "true"))
+            ->add('id_categoria', null, array('label' => 'Categoria', 'expanded' => "true"))
             ->add('palabras')
             ->add('tecnicas')
             ->add('utensilios')
-    
+        ;
     }
     
     /**

@@ -28,6 +28,12 @@ class Ingrediente
     */
     protected $precio;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Subconcept", inversedBy="ingredientes")
+     * @ORM\JoinColumn(name="medida", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $medida;
+
     
 
 
@@ -88,5 +94,28 @@ class Ingrediente
     public function getPrecio()
     {
         return $this->precio;
+    }
+
+    /**
+     * Set medida
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Subconcept $medida
+     * @return Ingrediente
+     */
+    public function setMedida(\Sukaldaris\InfoBundle\Entity\Subconcept $medida = null)
+    {
+        $this->medida = $medida;
+
+        return $this;
+    }
+
+    /**
+     * Get medida
+     *
+     * @return \Sukaldaris\InfoBundle\Entity\Subconcept 
+     */
+    public function getMedida()
+    {
+        return $this->medida;
     }
 }

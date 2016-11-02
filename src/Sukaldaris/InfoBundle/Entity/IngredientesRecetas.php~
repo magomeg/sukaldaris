@@ -128,4 +128,30 @@ class IngredientesRecetas
     {
         return $this->id_ingrediente;
     }
+
+    /**
+     * Set id_receta
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Receta $idReceta
+     * @return IngredientesRecetas
+     */
+    public function setIdReceta(\Sukaldaris\InfoBundle\Entity\Receta $idReceta)
+    {
+        $this->id_receta = $idReceta;
+
+        return $this;
+    }
+
+    /**
+     * Set id_ingrediente
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Ingrediente $idIngrediente
+     * @return IngredientesRecetas
+     */
+    public function setIdIngrediente(\Sukaldaris\InfoBundle\Entity\Ingrediente $idIngrediente)
+    {
+        $this->id_ingrediente = $idIngrediente;
+
+        return $this;
+    }
 }

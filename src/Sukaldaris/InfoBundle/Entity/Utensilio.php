@@ -64,4 +64,44 @@ class Utensilio
     {
         return $this->nombre;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->recetas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add recetas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Receta $recetas
+     * @return Utensilio
+     */
+    public function addReceta(\Sukaldaris\InfoBundle\Entity\Receta $recetas)
+    {
+        $this->recetas[] = $recetas;
+
+        return $this;
+    }
+
+    /**
+     * Remove recetas
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Receta $recetas
+     */
+    public function removeReceta(\Sukaldaris\InfoBundle\Entity\Receta $recetas)
+    {
+        $this->recetas->removeElement($recetas);
+    }
+
+    /**
+     * Get recetas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecetas()
+    {
+        return $this->recetas;
+    }
 }

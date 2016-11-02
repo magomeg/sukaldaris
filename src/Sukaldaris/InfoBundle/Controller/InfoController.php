@@ -8,13 +8,23 @@ class InfoController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SukaldarisInfoBundle:Info:index.html.twig');
-    }
-    public function exampleAction()
-    {
-    	$receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find(1);
+        $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getLatestRecetas();
 
-		$palabras = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:PalabraClave')->getPalabrasClaveForReceta(1);
+        if (!$recetas) {
+            exampleAction();
+        }
+        else{
+           return $this->render('SukaldarisInfoBundle:Info:index.html.twig', array('recetas' => $recetas)); 
+        }
+
+        
+    }
+   
+    public function recetaAction($id)
+    {
+        $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id);
+
+        $palabras = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:PalabraClave')->getPalabrasClaveForReceta($id);
 
         return $this->render('SukaldarisInfoBundle:Info:receta.html.twig', array('receta' => $receta, 'palabras' => $palabras));
     }

@@ -3,9 +3,14 @@
 namespace Sukaldaris\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
 * @ORM\Entity
 * @ORM\Table(name="receta")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\RecetaRepository")
 */
 
 class Receta
@@ -56,7 +61,7 @@ class Receta
 
     /**
      * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="recetas")
-     * @ORM\JoinColumn(name="id_ategoria", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="id_categoria", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $id_categoria;
 
@@ -92,12 +97,23 @@ class Receta
     */
     protected $pasos;
 
+     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $path;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->palabras = new \Doctrine\Common\Collections\ArrayCollection();
+
+        $this->fecha_publicacion = new \DateTime();
     }
 
     /**
@@ -424,5 +440,28 @@ class Receta
     public function getUtensilios()
     {
         return $this->utensilios;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Receta
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

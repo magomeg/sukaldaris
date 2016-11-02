@@ -3,6 +3,10 @@
 namespace Sukaldaris\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
 * @ORM\Entity
 * @ORM\Table(name="paso")
@@ -32,6 +36,15 @@ class Paso
      * @ORM\JoinColumn(name="id_receta", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $id_receta;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $path;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
 
     
 
@@ -112,5 +125,28 @@ class Paso
     public function getIdReceta()
     {
         return $this->id_receta;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Paso
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

@@ -4,3 +4,6 @@ sukaldaris_info_homepage:
 sukaldaris_info_example:
     path:     /example
     defaults: { _controller: SukaldarisInfoBundle:Info:example }
+sukaldaris_receta:
+    path:     /receta/{id}
+    defaults: { _controller: SukaldarisInfoBundle:Info:receta }

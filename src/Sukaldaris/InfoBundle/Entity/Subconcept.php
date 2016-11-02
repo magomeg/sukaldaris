@@ -28,6 +28,11 @@ class Subconcept
      */
     protected $id_concept;
 
+     /**
+    * @ORM\OneToMany(targetEntity="Ingrediente", mappedBy="medida")
+    */
+    protected $ingredientes;
+
     
 
 
@@ -85,5 +90,45 @@ class Subconcept
     public function getIdConcept()
     {
         return $this->id_concept;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredientes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ingredientes
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Ingrediente $ingredientes
+     * @return Subconcept
+     */
+    public function addIngrediente(\Sukaldaris\InfoBundle\Entity\Ingrediente $ingredientes)
+    {
+        $this->ingredientes[] = $ingredientes;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredientes
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Ingrediente $ingredientes
+     */
+    public function removeIngrediente(\Sukaldaris\InfoBundle\Entity\Ingrediente $ingredientes)
+    {
+        $this->ingredientes->removeElement($ingredientes);
+    }
+
+    /**
+     * Get ingredientes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIngredientes()
+    {
+        return $this->ingredientes;
     }
 }
