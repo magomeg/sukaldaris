@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Basic\BlogBundle\BasicBlogBundle(),
             new Sukaldaris\InfoBundle\SukaldarisInfoBundle(),
+            new Sukaldaris\AdminBundle\SukaldarisAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
