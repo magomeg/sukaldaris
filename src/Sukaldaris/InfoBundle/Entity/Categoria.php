@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 * @ORM\Table(name="categoria")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\CategoriaRepository")
 */
 
 class Categoria

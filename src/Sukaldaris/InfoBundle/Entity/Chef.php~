@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 * @ORM\Table(name="chef")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\ChefRepository")
 */
 
 class Chef

@@ -1358,11 +1358,22 @@ p.lom{
 	text-align: center;
 }
 .about-info h4 {
-	color: #f16522;
+	color: #8D0007;
 	font-size: 16px;
-	margin: 0;
-	text-align: center;
+	margin: 1em 0;
+	text-align: left;
 	text-transform: capitalize;
+}
+.about-info ul{
+	list-style-type: none;
+	margin: 1em 0;
+}
+.about-info li {
+	font-size: 14px;
+  
+  color: #999;
+  
+  text-decoration: none;
 }
 .about-info p{
   font-size: 14px;
@@ -1404,7 +1415,7 @@ p.lom{
   font-family: LobsterTwo-Regular;
 }
 .about-text-info h5 {
-  color: #f16522;
+  color: #8D0007;
   margin: 20px 0 0 0;
   font-size: 16px;
   line-height: 1.6em;
@@ -1426,7 +1437,7 @@ p.lom{
   font-size: 20px;
   text-decoration:none;
   transition:.5s all;
-  color:#f16522 !important;
+  color:#8D0007 !important;
   font-family: LobsterTwo-Regular;
 }
 .caption h4 a:hover{

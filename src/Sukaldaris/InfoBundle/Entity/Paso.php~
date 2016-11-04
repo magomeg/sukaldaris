@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
 * @ORM\Entity
 * @ORM\Table(name="paso")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\PasoRepository")
 */
 
 class Paso
@@ -125,5 +126,28 @@ class Paso
     public function getIdReceta()
     {
         return $this->id_receta;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Paso
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

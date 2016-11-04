@@ -14,13 +14,15 @@
 
     <!-- banner-bottom -->
       <div class="banner-bottom">
+
+      <h3 class ="ghj">Últimas recetas</h3>
         <ul id="flexiselDemo1">
 
           {% for receta in recetas %}  
 
           <li>
             <div class="banner-bottom-grid">
-              <img src="images/1.jpg" alt=" " class="img-responsive" />
+              <img src="{{asset('images/recetas/'~receta.Path~'')}}" alt=" " class="img-responsive" />
               <p>{{ receta.titulo }}</p>
               <div class="more">
                 <a href="{{path('sukaldaris_receta', { 'id': receta.Id }) }}" class="hvr-bounce-to-bottom sint">Ver la receta</a>

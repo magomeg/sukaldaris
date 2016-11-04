@@ -4,28 +4,127 @@
 
 {% block body %}
 
-	<div id="top">
+	<div class="about">
 
-		<div id="topLeft">
-		    <h1>{{receta.titulo}}</h1><h2>(autor)</h2>
+		<div class="about-text">
+		    <h3>{{receta.titulo}} (autor)</h3>
+		</div>
+		<div class="about-info">
 
-		    {% for palabra in palabras %}
+			<div class="col-md-7 about-info-left">
 
-		    <a class="palabraClave" href=# > #{{palabra.palabra}}, </a>
+			    {% for palabra in palabras %}
+			    <a class="palabraClave" href=# > #{{palabra.palabra}}, </a>
+			    {% endfor %}
+			    
+			    {% if receta.IdChef > 0 %}
+			    <a class="chef" href=#> {{receta.IdChef.Nombre}} {{receta.IdChef.Apellidos}}</a>
+			    {% endif %}
 
-		    {% endfor %}
+			    <h4>Ingredientes</h4>
+			    <ul>
+				    {% for ingredientesReceta in ingredientesRecetas %}
+					    {% if ingredientesReceta.cantidad is null %}
+					    	<li>{{ingredientesReceta.IdIngrediente.nombre}}</li>
+					    {% else %}
+					    	<li>{{ingredientesReceta.cantidad}} {{ingredientesReceta.IdIngrediente.medida.subconcept}} {{ingredientesReceta.IdIngrediente.nombre}}</li>
+					    {% endif %}
+				    {% endfor %}
+			    </ul>
+
+			    {% if utensilios is empty%}
+				{% else %}
+				    <h4>Utensilios</h4>
+				    <ul>
+					    {% for utensilio in utensilios %}
+					    	<li>{{utensilio.nombre}}</li>
+					    {% endfor %}
+				    </ul>
+
+			    {% endif %}
+
+			    
+			</div>
+
+			<div class="col-md-5 about-info-right">
+
+			    <img src= "{{asset('images/recetas/'~receta.Path~'')}}" width="250" height="200">
+			    <br>
+
+			    {% if receta.dificultad == 1 %}
+
+				    <img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+
+			    {% elseif receta.dificultad == 2 %}
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+
+			    {% elseif receta.dificultad == 3 %}
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+
+			    {% elseif receta.dificultad == 4 %}
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+				    <img src ="{{asset('images/gorro.png')}}" style="height:20px"/>
+
+			    {% elseif receta.dificultad == 5 %}
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+			    	<img src ="{{asset('images/gorroN.png')}}" style="height:20px"/>
+
+			    {% endif %}
+
+			    <br>
+
+			    <p><b>Tiempo preparación: </b>{{receta.tiempoPreparacion}} mins</p>
+
+			    <p><b>Tiempo cocinado: </b>{{receta.tiempoCocinado}} mins</p>
+
+			    <p><b>Personas:</b>{{receta.personas}}</p>
+
+			    {% if tecnicas is empty%}
+				{% else %}
+				    <h4>Técnicas</h4>
+				    <ul>
+					    {% for tecnica in tecnicas %}
+					    	<li>{{tecnica.nombre}}</li>
+					    {% endfor %}
+				    </ul>
+
+			    {% endif %}
+
+
+			</div>
+
+			<div style"clear:both">
+
+			<h4>Pasos</h4>
+
+			{% for paso in pasos %}
+				<p><span style="color:#af050c"><b>{{paso.numeroPaso}}. </b></span>{{paso.texto}}</p>
+			{% endfor %}
+
+			<div class="clearfix"></div>
 		    
-		    {% if receta.IdChef > 0 %}
+		</div>
+		
 
-		    <a class="chef" href=#> {{receta.IdChef.Nombre}} {{receta.IdChef.Apellidos}}</a>
-
-		    {% endif %}
-
-		    
-
-		</div>{# div topLeft#}
-
-    </div>{# div top#}
+    </div>
 	
 
 {% endblock %}

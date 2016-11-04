@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
 * @ORM\Entity
 * @ORM\Table(name="paso")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\PasoRepository")
 */
 
 class Paso

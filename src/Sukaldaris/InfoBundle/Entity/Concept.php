@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 * @ORM\Table(name="concept")
+* @ORM\Entity(repositoryClass="Sukaldaris\InfoBundle\Entity\ConceptRepository")
 */
 
 class Concept
