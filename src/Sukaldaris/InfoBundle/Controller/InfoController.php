@@ -10,12 +10,9 @@ class InfoController extends Controller
     {
         $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getLatestRecetas();
 
-        if (!$recetas) {
-            exampleAction();
-        }
-        else{
-           return $this->render('SukaldarisInfoBundle:Info:index.html.twig', array('recetas' => $recetas)); 
-        }
+        
+        return $this->render('SukaldarisInfoBundle:Info:index.html.twig', array('recetas' => $recetas)); 
+        
 
         
     }

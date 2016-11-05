@@ -1,0 +1,25 @@
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/addReceta.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block title %}Añadir una nueva receta{% endblock %}
+
+{% block body %}
+	<h1>Añadir una nueva receta</h1>
+
+	<section>
+		<form action="{{ path( ruta ) }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+	    {{ form_widget(form) }}
+
+	    <p>
+
+	        <input type="submit" value="Enviar">
+
+	    </p>
+
+		</form>
+	</section>
+	
+{% endblock %}
+

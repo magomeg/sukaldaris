@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@BasicBlogBundle/Resources/config/services.yml" }
     - { resource: "@SukaldarisInfoBundle/Resources/config/services.yml" }
     - { resource: "@SukaldarisAdminBundle/Resources/config/services.yml" }
 
@@ -37,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
 
 # Doctrine Configuration
 doctrine:

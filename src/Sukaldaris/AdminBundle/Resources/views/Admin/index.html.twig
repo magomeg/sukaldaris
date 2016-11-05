@@ -1,1 +1,35 @@
-Hello World!
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Bootstrap core CSS -->
+    
+
+{% endblock %}
+
+{% block body %}
+
+   
+
+    <!-- banner-bottom -->
+      <div class="banner-bottom">
+
+      <h3 class ="ghj">Añadir...</h3>
+
+      <h3><a href="{{ path('sukaldaris_admin_new_receta')}}"><span class="label label-danger">Nueva receta</span></a>
+      <a href="{{ path('sukaldaris_admin_new_ingrediente')}}"><span class="label label-danger">Nuevo Ingrediente</span></a>
+      <a href="#"><span class="label label-danger">Nueva Categoría</span></a>
+      </h3>
+        
+        
+      </div>
+<!-- //banner-bottom -->
+
+   
+{% endblock %}
+{% block javascripts %}
+
+    
+
+  {% endblock %}

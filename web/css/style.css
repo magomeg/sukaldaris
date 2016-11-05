@@ -1215,6 +1215,13 @@ p.lom{
 	display:block;
 	color:#888;
 	}
+.label-danger {
+  background-color: #d7141e;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
 .in-left{
 	float:left;
 	width:45%;

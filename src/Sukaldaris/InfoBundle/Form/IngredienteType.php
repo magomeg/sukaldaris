@@ -15,8 +15,15 @@ class IngredienteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre', 'text', array('label' => 'Nombre'))
-            ->add('precio','integer', array('label' => 'Precio por unidad'))
+            ->add('nombre', 'text', array('label' => 'Nombre', 'scale'=> 2, 'attr'=>('step' => 0.01, 'min' => 0)))
+            ->add('precio','integer', array('label' => 'Precio por unidad', 'attr' => array( 'min' => '0',)))
+            ->add('medida','entity', array(
+                'class' => 'Sukaldaris\InfoBundle\Entity\Subconcept',
+                'property' => 'subconcept',
+                'multiple' => false,
+                'expanded' => false,
+                'label' => 'Medida'
+              ))
         ;
     }
     

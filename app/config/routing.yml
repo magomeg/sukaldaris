@@ -1,6 +1,5 @@
 sukaldaris_admin:
-    resource: "@SukaldarisAdminBundle/Controller/"
-    type:     annotation
+    resource: "@SukaldarisAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
 
 sukaldaris_info:

@@ -1,6 +1,17 @@
 sukaldaris_admin_homepage:
     path:     /
     defaults: { _controller: SukaldarisAdminBundle:Admin:index }
+
+sukaldaris_admin_new_ingrediente:
+    path:     /nuevoIngrediente
+    defaults: { _controller: SukaldarisAdminBundle:Admin:newIngrediente }
 sukaldaris_admin_create_ingrediente:
     path:     /crearIngrediente
     defaults: { _controller: SukaldarisAdminBundle:Admin:createIngrediente }
+
+sukaldaris_admin_new_receta:
+    path:     /nuevoReceta
+    defaults: { _controller: SukaldarisAdminBundle:Admin:newReceta }
+sukaldaris_admin_create_receta:
+    path:     /crearReceta
+    defaults: { _controller: SukaldarisAdminBundle:Admin:createReceta }
