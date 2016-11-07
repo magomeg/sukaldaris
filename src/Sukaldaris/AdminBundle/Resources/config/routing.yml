@@ -15,3 +15,17 @@ sukaldaris_admin_new_receta:
 sukaldaris_admin_create_receta:
     path:     /crearReceta
     defaults: { _controller: SukaldarisAdminBundle:Admin:createReceta }
+
+sukaldaris_admin_list_ingrediente_edit:
+    path:     /listIngredientesEdit/{page}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:listIngredientesEdit }
+sukaldaris_admin_list_receta_edit:
+    path:     /listRecetasEdit/{page}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:listRecetasEdit }
+
+sukaldaris_admin_list_ingrediente_delete:
+    path:     /listIngredientesDelete/{page}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:listIngredientesDelete }
+sukaldaris_admin_list_receta_delete:
+    path:     /listRecetasDelete/{page}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:listRecetasDelete }

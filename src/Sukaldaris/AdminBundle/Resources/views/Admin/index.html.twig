@@ -17,11 +17,25 @@
 
       <h3 class ="ghj">Añadir...</h3>
 
-      <h3><a href="{{ path('sukaldaris_admin_new_receta')}}"><span class="label label-danger">Nueva receta</span></a>
-      <a href="{{ path('sukaldaris_admin_new_ingrediente')}}"><span class="label label-danger">Nuevo Ingrediente</span></a>
-      <a href="#"><span class="label label-danger">Nueva Categoría</span></a>
+      <h3><a href="{{ path('sukaldaris_admin_new_receta')}}"><span class="label label-success">Nueva receta</span></a>
+      <a href="{{ path('sukaldaris_admin_new_ingrediente')}}"><span class="label label-success">Nuevo ingrediente</span></a>
+      <a href="#"><span class="label label-success">Nueva categoría</span></a>
       </h3>
-        
+      <br>
+      
+       <h3 class ="ghj">Editar...</h3>
+       <h3><a href="{{ path('sukaldaris_admin_list_receta_edit', { 'page': 1 })}}"><span class="label label-info">Editar receta</span></a>
+      <a href="{{ path('sukaldaris_admin_list_ingrediente_edit', { 'page': 1 })}}"><span class="label label-info">Editar ingrediente</span></a>
+      <a href="#"><span class="label label-info">Editar categoría</span></a>
+      </h3>
+
+      <br>
+
+      <h3 class ="ghj">Borrar...</h3>
+       <h3><a href="{{ path('sukaldaris_admin_list_receta_delete', { 'page': 1 })}}"><span class="label label-danger">Borrar receta</span></a>
+      <a href="{{ path('sukaldaris_admin_list_ingrediente_delete', { 'page': 1 })}}"><span class="label label-danger">Borrar ingrediente</span></a>
+      <a href="#"><span class="label label-danger">Borrar categoría</span></a>
+      </h3>
         
       </div>
 <!-- //banner-bottom -->

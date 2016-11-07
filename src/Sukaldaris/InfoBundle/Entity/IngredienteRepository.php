@@ -3,6 +3,8 @@
 namespace Sukaldaris\InfoBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 
 /**
  * IngredienteRepository
@@ -12,4 +14,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class IngredienteRepository extends EntityRepository
 {
+
+	public function getIngredientesAlphabeticallyOrdered($currentPage)
+	{
+	
+	    $qp = $this->createQueryBuilder('p')->select('p')->addOrderBy('p.nombre', 'ASC');
+
+	   	$paginator = $this-> paginate($qp, $currentPage);
+
+	   	return $paginator;
+
+	}
+
+	public function paginate($dql,$page=1,$limit=20){
+		$paginator = new Paginator($dql);
+
+		$paginator->getQuery() ->setFirstResult($limit * ($page - 1)) ->setMaxResults($limit);
+
+		return $paginator;
+	}
 }

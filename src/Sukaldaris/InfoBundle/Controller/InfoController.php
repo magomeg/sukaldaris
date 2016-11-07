@@ -33,4 +33,14 @@ class InfoController extends Controller
 
         return $this->render('SukaldarisInfoBundle:Info:receta.html.twig', array('receta' => $receta, 'palabras' => $palabras, 'utensilios' => $utensilios, 'tecnicas' => $tecnicas, 'ingredientesRecetas' => $ingredientesRecetas, 'pasos' => $pasos));
     }
+
+    public function verTodoAction($page)
+    {
+        $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getRecetasAlphabeticallyOrdered($page);
+
+       $totalItems = count($recetas);
+        $pagesCount = ceil($totalItems / 20);
+
+       return $this->render('SukaldarisInfoBundle:Info:all.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
+    }
 }

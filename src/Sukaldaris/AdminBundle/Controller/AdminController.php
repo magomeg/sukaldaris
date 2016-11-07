@@ -22,6 +22,8 @@ use Sukaldaris\InfoBundle\Form\CategoriaType;
 use Sukaldaris\InfoBundle\Form\IngredienteType;
 use Sukaldaris\InfoBundle\Form\RecetaType;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 class AdminController extends Controller
 {
     /**
@@ -68,6 +70,7 @@ class AdminController extends Controller
      public function createRecetaAction()
     {
         $receta= new Receta();
+        $id= $receta->getId();
         $request = $this->getRequest();
         $form = $this->createForm(new RecetaType(), $receta);
         $form->bind($request);
@@ -81,6 +84,50 @@ class AdminController extends Controller
 
         }
         
-        return $this->forward('sukaldaris.info_controller:recetaAction', array('id'=>($receta->getId())));
+        return $this->forward('sukaldaris.info_controller:recetaAction', array('id'=>$id));
+    }
+
+    public function listIngredientesEditAction($page)
+    {
+
+       $ingredientes = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->getIngredientesAlphabeticallyOrdered($page);
+
+       $totalItems = count($ingredientes);
+        $pagesCount = ceil($totalItems / 20);
+
+       return $this->render('SukaldarisAdminBundle:Admin:listIngredientesEdit.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount));
+    }
+
+    public function listIngredientesDeleteAction($page)
+    {
+
+       $ingredientes = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->getIngredientesAlphabeticallyOrdered($page);
+
+       $totalItems = count($ingredientes);
+        $pagesCount = ceil($totalItems / 20);
+
+       return $this->render('SukaldarisAdminBundle:Admin:listIngredientesDelete.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount));
+    }
+
+    public function listRecetasEditAction($page)
+    {
+
+       $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getRecetasAlphabeticallyOrdered($page);
+
+       $totalItems = count($recetas);
+        $pagesCount = ceil($totalItems / 20);
+
+       return $this->render('SukaldarisAdminBundle:Admin:listRecetasEdit.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
+    }
+
+    public function listRecetasDeleteAction($page)
+    {
+
+       $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getIngredientesAlphabeticallyOrdered($page);
+
+       $totalItems = count($recetas);
+        $pagesCount = ceil($totalItems / 20);
+
+       return $this->render('SukaldarisAdminBundle:Admin:listRecetasDelete.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
     }
 }

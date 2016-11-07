@@ -14,7 +14,61 @@
 
     <!-- banner-bottom -->
       <div class="banner-bottom">
-        
+        <div class="about-info">
+
+        <h3 class ="ghj">Todas las recetas</h3>
+
+            <ul>
+          
+            {% for receta in recetas %}
+
+            <li><a href="{{path('sukaldaris_receta', { 'id': receta.Id }) }}">{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+
+            {% endfor %}
+
+            </ul>
+
+            {% if paginas == 1 %}
+
+            {% else %}
+            <nav>
+                  <ul class="pagination">
+
+                  {% if current == 1 %}
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  {%else%}
+                    <li><a href="{{ path('sukaldaris_info_all', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  {%endif%}
+
+                  {% set pg = 1 %}
+
+                  {% for pagina in paginas %}
+
+                    {% if current == pg %}
+                    
+                    <li class="active"><a href="{{ path('sukaldaris_info_all', { 'page': current })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
+
+                    {%else%}
+
+                    <li ><a href="{{ path('sukaldaris_info_all', { 'page': pg })}}">{{pg}} </a></li>
+
+                    {%endif%}
+
+                    {% set pg = pg + 1 %}
+                  
+                  
+                  {% endfor %}
+
+                  {% if current == pg %}
+                    <li class="disabled"><a href="{{ path('sukaldaris_info_all', { 'page': current + 1})}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  {% else %}
+                    <li ><a href="{{ path('sukaldaris_info_all', { 'page': current + 1})}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  {%endif%}
+
+                 </ul>
+            </nav>
+            {% endif %}
+        </div>
       </div>
 <!-- //banner-bottom -->
 

@@ -1,9 +1,9 @@
 sukaldaris_info_homepage:
     path:     /
     defaults: { _controller: SukaldarisInfoBundle:Info:index }
-sukaldaris_info_example:
-    path:     /example
-    defaults: { _controller: SukaldarisInfoBundle:Info:example }
+sukaldaris_info_all:
+    path:     /verTodo/{page}
+    defaults: { _controller: SukaldarisInfoBundle:Info:verTodo }
 sukaldaris_receta:
     path:     /receta/{id}
     defaults: { _controller: SukaldarisInfoBundle:Info:receta }

@@ -1,0 +1,71 @@
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/listIngredientesEdit.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Bootstrap core CSS -->
+    
+
+{% endblock %}
+
+{% block body %}
+
+   
+
+    <!-- banner-bottom -->
+      <div class="banner-bottom">
+      <div class="about-info">
+
+        <h3 class ="ghj">Recetas</h3>
+
+            <ul>
+          
+            {% for receta in recetas %}
+
+            <li><a href=#>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+
+            {% endfor %}
+
+            </ul>
+            <nav>
+                  <ul class="pagination">
+
+                  {% if current == 1 %}
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  {%else%}
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  {%endif%}
+
+                  {% set pg = 1 %}
+
+                  {% for pagina in paginas %}
+
+                    {% if current == pg %}
+                    
+                    <li class="active"><a href="#">{{pg}} <span class="sr-only">(current)</span></a></li>
+
+                    {%else%}
+
+                    <li ><a href="#">{{pg}} </a></li>
+
+                    {%endif%}
+
+                    {% set pg = pg + 1 %}
+                  
+                  
+                  {% endfor %}
+
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                 </ul>
+            </nav>
+        </div>
+      </div>
+<!-- //banner-bottom -->
+
+   
+{% endblock %}
+{% block javascripts %}
+
+    
+
+  {% endblock %}
