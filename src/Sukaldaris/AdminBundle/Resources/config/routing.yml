@@ -29,3 +29,31 @@ sukaldaris_admin_list_ingrediente_delete:
 sukaldaris_admin_list_receta_delete:
     path:     /listRecetasDelete/{page}
     defaults: { _controller: SukaldarisAdminBundle:Admin:listRecetasDelete }
+
+sukaldaris_admin_goto_edit_ingrediente:
+    path:     /editIngrediente/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:gotoEditIngrediente }
+sukaldaris_admin_goto_edit_receta:
+    path:     /editReceta/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:gotoEditReceta }
+
+sukaldaris_admin_edit_ingrediente:
+    path:     /editingIngrediente/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:editIngrediente }
+sukaldaris_admin_edit_receta:
+    path:     /editingReceta/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:editReceta }
+
+sukaldaris_admin_goto_delete_ingrediente:
+    path:     /deleteIngrediente/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:gotoDeleteIngrediente }
+sukaldaris_admin_goto_delete_receta:
+    path:     /deleteReceta/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:gotoDeleteReceta }
+
+sukaldaris_admin_delete_ingrediente:
+    path:     /deletingIngrediente/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:deleteIngrediente }
+sukaldaris_admin_delete_receta:
+    path:     /deletingReceta/{id}
+    defaults: { _controller: SukaldarisAdminBundle:Admin:deleteReceta }

@@ -1,0 +1,13 @@
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/editReceta.html.twig #}
+
+{% extends "::base.html.twig" %}
+{% block title %}Editar{% endblock %}
+{% block body %} 
+
+<h1>Introducir nuevos datos</h1>
+
+<form action="{{ path(ruta, { 'id': receta.id }) }}" method="post" {{ form_enctype(form) }}>
+    <h2>{{ form_widget(form) }}</h2><br>
+	<input type="submit"; class="boton"; value="Enviar">
+</form>
+{% endblock %}

@@ -70,7 +70,7 @@ class AdminController extends Controller
      public function createRecetaAction()
     {
         $receta= new Receta();
-        $id= $receta->getId();
+       
         $request = $this->getRequest();
         $form = $this->createForm(new RecetaType(), $receta);
         $form->bind($request);
@@ -82,9 +82,10 @@ class AdminController extends Controller
             $em->persist($receta);
             $em->flush();
 
+            return $this->redirect($this->generateUrl('sukaldaris_receta', array('id' => $receta->getId())));
         }
         
-        return $this->forward('sukaldaris.info_controller:recetaAction', array('id'=>$id));
+        
     }
 
     public function listIngredientesEditAction($page)
@@ -95,7 +96,9 @@ class AdminController extends Controller
        $totalItems = count($ingredientes);
         $pagesCount = ceil($totalItems / 20);
 
-       return $this->render('SukaldarisAdminBundle:Admin:listIngredientesEdit.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount));
+        $ruta = 'sukaldaris_admin_goto_edit_ingrediente';
+
+       return $this->render('SukaldarisAdminBundle:Admin:listIngredientes.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount, 'ruta' => $ruta));
     }
 
     public function listIngredientesDeleteAction($page)
@@ -106,7 +109,9 @@ class AdminController extends Controller
        $totalItems = count($ingredientes);
         $pagesCount = ceil($totalItems / 20);
 
-       return $this->render('SukaldarisAdminBundle:Admin:listIngredientesDelete.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount));
+        $ruta = 'sukaldaris_admin_delete_ingrediente';
+
+       return $this->render('SukaldarisAdminBundle:Admin:listIngredientes.html.twig', array('ingredientes' => $ingredientes, 'current' => $page, 'paginas' => $pagesCount, 'ruta' => $ruta));
     }
 
     public function listRecetasEditAction($page)
@@ -117,17 +122,93 @@ class AdminController extends Controller
        $totalItems = count($recetas);
         $pagesCount = ceil($totalItems / 20);
 
-       return $this->render('SukaldarisAdminBundle:Admin:listRecetasEdit.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
+        $ruta = 'sukaldaris_admin_goto_edit_receta';
+
+       return $this->render('SukaldarisAdminBundle:Admin:listRecetas.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount, 'ruta' => $ruta));
     }
 
     public function listRecetasDeleteAction($page)
     {
 
-       $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getIngredientesAlphabeticallyOrdered($page);
+       $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getRecetasAlphabeticallyOrdered($page);
 
        $totalItems = count($recetas);
         $pagesCount = ceil($totalItems / 20);
 
-       return $this->render('SukaldarisAdminBundle:Admin:listRecetasDelete.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
+        $ruta = 'sukaldaris_admin_delete_receta';
+
+       return $this->render('SukaldarisAdminBundle:Admin:listRecetas.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount, 'ruta' => $ruta));
+    }
+
+    public function gotoEditIngredienteAction ($id)
+    {
+          $ingrediente = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->find($id);  
+        $form   = $this->createForm(new IngredienteType(), $ingrediente);
+        $ruta = 'hp_admin_edit_ingrediente';
+        
+        return $this->render('SukaldarisAdminBundle:Admin:editIngrediente.html.twig', array('ingrediente' => $ingrediente,'form'   => $form->createView(), 'ruta' => $ruta));
+    }
+
+    public function editIngredienteAction($id)
+    {
+        $ingrediente = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->find($id);        
+       $request = $this->getRequest();
+        $form = $this->createForm(new IngredienteType(), $ingrediente);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            // TODO: Persist the comment entity
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ingrediente);
+            $em->flush();
+
+                    
+        }return $this->redirect($this->generateUrl('sukaldaris_admin_ingrediente', array('id' => $ingrediente->getId())));
+    }
+
+    public function gotoEditRecetaAction ($id)
+    {
+          $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id);  
+        $form   = $this->createForm(new RecetaType(), $receta);
+        $ruta = 'hp_admin_edit_receta';
+        
+        return $this->render('SukaldarisAdminBundle:Admin:editReceta.html.twig', array('receta' => $receta,'form'   => $form->createView(), 'ruta' => $ruta));
+    }
+
+    public function editRecetaAction($id)
+    {
+        $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id);        
+       $request = $this->getRequest();
+        $form = $this->createForm(new RecetaType(), $receta);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            // TODO: Persist the comment entity
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($receta);
+            $em->flush();
+        
+        } return $this->redirect($this->generateUrl('sukaldaris_receta', array('id' => $receta->getId())));
+    }
+
+    public function deleteIngredienteAction ($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $ingrediente = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->find($id); 
+        $em->remove($ingrediente);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('sukaldaris_admin_homepage'));
+    }
+
+   
+    public function deleteRecetaAction ($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id); 
+        $em->remove($receta);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('sukaldaris_admin_homepage'));
     }
 }

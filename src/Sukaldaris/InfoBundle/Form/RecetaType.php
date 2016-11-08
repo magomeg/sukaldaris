@@ -24,7 +24,7 @@ class RecetaType extends AbstractType
             ->add('id_chef', null, array('label' => 'Chef', 'expanded' => "true"))
             ->add('id_categoria', null, array('label' => 'Categoria', 'expanded' => "true"))
             ->add('palabras', CollectionType::class, array(
-            'entry_type' => PalabraClaveType::class ))
+            'entry_type' => PalabraClaveType::class, 'allow_add' => true, ))
             ->add('tecnicas', 'entity', array(
                 'class' => 'Sukaldaris\InfoBundle\Entity\Tecnica',
                 'property' => 'nombre',

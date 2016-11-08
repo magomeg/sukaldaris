@@ -16,15 +16,26 @@
       <div class="banner-bottom">
       <div class="about-info">
 
-        <h3 class ="ghj">Ingredientes</h3>
+        <h3 class ="ghj">Recetas</h3>
 
             <ul>
+
+            {% if ruta starts with 'sukaldaris_admin_goto'%}
           
-            {% for ingrediente in ingredientes %}
+              {% for receta in recetas %}
 
-            <li><a href=#>{{ingrediente.Nombre}}</a> </li> 
+              <li><a href="{{ path( ruta, { 'id':receta.Id })}}">{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
 
-            {% endfor %}
+              {% endfor %}
+            {% else %}
+              {% for receta in recetas %}
+
+              <li><a onClick='myFunction(3)'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+
+              {% endfor %}
+
+
+            {% endif %}
 
             </ul>
             <nav>
@@ -61,7 +72,17 @@
         </div>
       </div>
 <!-- //banner-bottom -->
-
+<script>
+function myFunction(id) {
+    
+    if (confirm("¿De verdad desea eliminar este elemento?") == true) {
+        window.location.href = "{{ path( ruta, { 'id': 3 })}}";
+    } else {
+        
+    }
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
    
 {% endblock %}
 {% block javascripts %}
