@@ -637,6 +637,12 @@ p.para{
 	margin:1em 0 2em;
 	line-height:1.8em;
 }
+.img-responsive{
+
+	max-height: 200px;
+
+
+}
 .rd-mre a{
 	padding: 10px 30px;
 	color: #fff;

@@ -30,7 +30,7 @@
             {% else %}
               {% for receta in recetas %}
 
-              <li><a onClick='myFunction(3)'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+              <li><a onClick='myFunction({{receta.Id}})'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
 
               {% endfor %}
 
@@ -38,13 +38,19 @@
             {% endif %}
 
             </ul>
+
+            {% if paginas == 1 %}
+
+            {% else %}
             <nav>
                   <ul class="pagination">
 
                   {% if current == 1 %}
                     <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  {%elseif ruta starts with 'sukaldaris_admin_goto'%}
+                    <li><a href="{{ path('sukaldaris_admin_list_receta_edit', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                   {%else%}
-                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li><a href="{{ path('sukaldaris_admin_list_receta_delete', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                   {%endif%}
 
                   {% set pg = 1 %}
@@ -52,12 +58,19 @@
                   {% for pagina in paginas %}
 
                     {% if current == pg %}
-                    
-                    <li class="active"><a href="#">{{pg}} <span class="sr-only">(current)</span></a></li>
+                        {%if ruta starts with 'sukaldaris_admin_goto'%}
+                            <li class="active"><a href="{{ path('sukaldaris_admin_list_receta_edit', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
+                        {%else%}
+                            <li class="active"><a href="{{ path('sukaldaris_admin_list_receta_delete', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
+                        {%endif%}
 
                     {%else%}
 
-                    <li ><a href="#">{{pg}} </a></li>
+                      {%if ruta starts with 'sukaldaris_admin_goto'%}
+                            <li ><a href="{{ path('sukaldaris_admin_list_receta_edit', { 'page': pg })}}">{{pg}} </a></li>
+                        {%else%}
+                            <li ><a href="{{ path('sukaldaris_admin_list_receta_delete', { 'page': pg })}}">{{pg}} </a></li>
+                        {%endif%}
 
                     {%endif%}
 
@@ -66,7 +79,15 @@
                   
                   {% endfor %}
 
-                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  {% if current == pg %}
+                    <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">«</span></a></li>
+                  {%elseif ruta starts with 'sukaldaris_admin_goto'%}
+                    <li><a href="{{ path('sukaldaris_admin_list_receta_edit', { 'page': current+11 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  {%else%}
+                    <li><a href="{{ path('sukaldaris_admin_list_receta_delete', { 'page': current+1 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  {%endif%}
+
+                  
                  </ul>
             </nav>
         </div>
@@ -74,9 +95,11 @@
 <!-- //banner-bottom -->
 <script>
 function myFunction(id) {
-    
-    if (confirm("¿De verdad desea eliminar este elemento?") == true) {
-        window.location.href = "{{ path( ruta, { 'id': 3 })}}";
+
+      if (confirm("¿De verdad desea eliminar este elemento?") == true) {
+        var route = "{{ path(ruta, { 'id': 'PLACEHOLDER' }) }}";
+        window.location.href = route.replace("PLACEHODER", id);
+       
     } else {
         
     }

@@ -13,6 +13,8 @@
 
 	    {{ form_widget(form) }}
 
+	    
+
 	    <p>
 
 	        <input type="submit" value="Enviar">
@@ -22,5 +24,13 @@
 		</form>
 	</section>
 	
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="{{ asset('js/autocomplete.js') }}"></script>
+	<script>
+	    
+	    var ROOT_URL = "{{ url('sukaldaris_homepage')}}"; //your root URL, used in autocomplete-countries.js file
+	</script>
 {% endblock %}
 

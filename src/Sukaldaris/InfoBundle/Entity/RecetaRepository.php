@@ -16,7 +16,7 @@ class RecetaRepository extends EntityRepository
 
 	public function getLatestRecetas($limit = null)
 	{
-		$qp = $this->createQueryBuilder('r')->select('r')->addOrderBy('r.fecha_publicacion', 'ASC');
+		$qp = $this->createQueryBuilder('r')->select('r')->addOrderBy('r.fecha_publicacion', 'DESC');
 
 		if (false === is_null($limit))
 			$qp->setMaxResults($limit);

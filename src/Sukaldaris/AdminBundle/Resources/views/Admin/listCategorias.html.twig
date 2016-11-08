@@ -1,4 +1,4 @@
-{# src/Sukaldaris/AdminBundle/Resources/views/Admin/listIngredientes.html.twig #}
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/listCategorias.html.twig #}
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
@@ -16,13 +16,13 @@
       <div class="banner-bottom">
       <div class="about-info">
 
-        <h3 class ="ghj">Ingredientes</h3>
+        <h3 class ="ghj">Categorias</h3>
 
             <ul>
           
-            {% for ingrediente in ingredientes %}
+            {% for categoria in categorias %}
 
-            <li><a href="{{ path( ruta, { 'id':ingrediente.Id })}}">{{ingrediente.Nombre}}</a> </li> 
+            <li><a href="{{ path( ruta, { 'id':categoria.Id })}}">{{categoria.categoria}}</a> </li> 
 
             {% endfor %}
 
@@ -36,9 +36,9 @@
                   {% if current == 1 %}
                     <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                   {%elseif ruta starts with 'sukaldaris_admin_goto'%}
-                    <li><a href="{{ path('sukaldaris_admin_list_ingrediente_edit', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li><a href="{{ path('sukaldaris_admin_list_categoria_edit', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                   {%else%}
-                    <li><a href="{{ path('sukaldaris_admin_list_ingrediente_delete', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li><a href="{{ path('sukaldaris_admin_list_categoria_delete', { 'page': current-1 })}}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                   {%endif%}
 
                   {% set pg = 1 %}
@@ -47,17 +47,17 @@
 
                     {% if current == pg %}
                         {%if ruta starts with 'sukaldaris_admin_goto'%}
-                            <li class="active"><a href="{{ path('sukaldaris_admin_list_ingrediente_edit', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="{{ path('sukaldaris_admin_list_categoria_edit', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
                         {%else%}
-                            <li class="active"><a href="{{ path('sukaldaris_admin_list_ingrediente_delete', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="{{ path('sukaldaris_admin_list_categoria_delete', { 'page': pg })}}">{{pg}} <span class="sr-only">(current)</span></a></li>
                         {%endif%}
 
                     {%else%}
 
                       {%if ruta starts with 'sukaldaris_admin_goto'%}
-                            <li ><a href="{{ path('sukaldaris_admin_list_ingrediente_edit', { 'page': pg })}}">{{pg}} </a></li>
+                            <li ><a href="{{ path('sukaldaris_admin_list_categoria_edit', { 'page': pg })}}">{{pg}} </a></li>
                         {%else%}
-                            <li ><a href="{{ path('sukaldaris_admin_list_ingrediente_delete', { 'page': pg })}}">{{pg}} </a></li>
+                            <li ><a href="{{ path('sukaldaris_admin_list_categoria_delete', { 'page': pg })}}">{{pg}} </a></li>
                         {%endif%}
 
                     {%endif%}
@@ -70,9 +70,9 @@
                   {% if current == pg %}
                     <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">«</span></a></li>
                   {%elseif ruta starts with 'sukaldaris_admin_goto'%}
-                    <li><a href="{{ path('sukaldaris_admin_list_ingrediente_edit', { 'page': current+11 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li><a href="{{ path('sukaldaris_admin_list_categoria_edit', { 'page': current+11 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                   {%else%}
-                    <li><a href="{{ path('sukaldaris_admin_list_ingrediente_delete', { 'page': current+1 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li><a href="{{ path('sukaldaris_admin_list_categoria_delete', { 'page': current+1 })}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                   {%endif%}
 
                   

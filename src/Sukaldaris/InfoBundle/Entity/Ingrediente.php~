@@ -25,7 +25,7 @@ class Ingrediente
 	protected $nombre;
 
     /**
-    * @ORM\Column(type="float")
+    * @ORM\Column(type="float", nullable=true)
     */
     protected $precio;
 
