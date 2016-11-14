@@ -43,4 +43,14 @@ class InfoController extends Controller
 
        return $this->render('SukaldarisInfoBundle:Info:all.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
     }
+
+    public function searchAction()
+    {
+        return $this->render('SukaldarisInfoBundle:Info:search.html.twig');
+    }
+
+    public function searchResultsAction($pattern)
+    {
+        
+    }
 }

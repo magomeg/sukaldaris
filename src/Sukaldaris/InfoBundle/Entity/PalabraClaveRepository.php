@@ -24,4 +24,10 @@ class PalabraClaveRepository extends EntityRepository
     return $qb->getQuery()->getResult();
 
 	}
+    public function getAllPalabrasClave()
+    {
+        $qp = $this->createQueryBuilder('r')->select('r')->addOrderBy('r.palabra', 'ASC');
+
+        return $qp->getQuery()->getResult();
+    }
 }

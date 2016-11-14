@@ -72,3 +72,7 @@ sukaldaris_admin_delete_receta:
 sukaldaris_admin_delete_categoria:
     path:     /deletingCategoria/{id}
     defaults: { _controller: SukaldarisAdminBundle:Admin:deleteCategoria }
+
+sukaldaris_json_palabras:
+    path:      /palabrasJSON
+    defaults: { _controller: SukaldarisAdminBundle:Admin:palabrasJSON}

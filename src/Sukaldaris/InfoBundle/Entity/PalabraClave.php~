@@ -3,6 +3,7 @@
 namespace Sukaldaris\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
 * @ORM\Entity
 * @ORM\Table(name="palabraclave")
@@ -19,7 +20,8 @@ class PalabraClave
 	protected $id;
 
 	/**
-	* @ORM\Column(type="text")
+	* @ORM\Column(type="text", unique=true)
+    * @Assert\NotBlank()
 	*/
 	protected $palabra;
 
@@ -104,4 +106,13 @@ class PalabraClave
     {
         return $this->recetas;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->$palabra;
+    }
+
 }

@@ -1,0 +1,41 @@
+ {# src/Sukaldaris/InfoBundle/Resources/views/Info/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Bootstrap core CSS -->
+    
+
+{% endblock %}
+
+{% block body %}
+
+   
+
+    <!-- banner-bottom -->
+      <div class="banner-bottom">
+        <div class="about-info">
+
+ <h3 class ="ghj">Resultados de búsqueda</h3>
+
+            <ul>
+          
+            {% for receta in recetas %}
+
+            <li><a href="{{path('sukaldaris_receta', { 'id': receta.Id }) }}">{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+
+            {% endfor %}
+
+            </ul>
+
+                    </div>
+      </div>
+<!-- //banner-bottom -->
+
+   
+{% endblock %}
+{% block javascripts %}
+
+    
+
+  {% endblock %}

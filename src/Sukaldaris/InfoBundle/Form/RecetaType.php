@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 
 class RecetaType extends AbstractType
 {
@@ -23,21 +25,30 @@ class RecetaType extends AbstractType
             ->add('tiempo_cocinado', 'integer', array('label' => 'Tiempo de cocinado', 'required' => false, 'attr' => array( 'min' => '0',)))
             
             ->add('personas', 'integer', array('label' => 'Personas', 'required' => false, 'attr' => array( 'min' => '0',)))
-            ->add('id_chef', 'entity', array('class' => 'Sukaldaris\InfoBundle\Entity\Chef','property' => 'nombre','label' => 'Chef', 'expanded' => false))
+            ->add('id_chef', 'entity', array('class' => 'Sukaldaris\InfoBundle\Entity\Chef','property' => 'nombre','label' => 'Chef', 'expanded' => false, 'required'=> false))
             ->add('id_categoria', 'entity', array('class' => 'Sukaldaris\InfoBundle\Entity\Categoria','property' => 'categoria','label' => 'Categoria', 'expanded' => false))
-            ->add('palabras', 'genemu_jqueryselect2_entity', array( 'class' => 'Sukaldaris\InfoBundle\Entity\PalabraClave', 'property' => 'palabra' ))
+            ->add('palabras', EntityType::class, [
+                'required' => true,
+                'class' => 'Sukaldaris\InfoBundle\Entity\PalabraClave',
+                'multiple' => true,
+                'attr' => [
+                    'class' => 'js-select2',
+                ],
+            ])
             ->add('tecnicas', 'entity', array(
                 'class' => 'Sukaldaris\InfoBundle\Entity\Tecnica',
                 'property' => 'nombre',
                 'multiple' => true,
                 'expanded' => false,
-                'label' => 'Técnicas'
+                'label' => 'Técnicas',
+                'required'=> false
               ))
             ->add('utensilios', 'entity', array(
                 'class' => 'Sukaldaris\InfoBundle\Entity\Utensilio',
                 'property' => 'nombre',
                 'multiple' => true,
-                'expanded' => false
+                'expanded' => false,
+                'required'=> false
               ))
             ->add('path', FileType::class, array('label' => 'Foto','data_class' => null, 'required' => false))
         ;

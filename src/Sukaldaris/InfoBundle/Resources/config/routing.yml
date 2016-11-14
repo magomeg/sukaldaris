@@ -7,3 +7,9 @@ sukaldaris_info_all:
 sukaldaris_receta:
     path:     /receta/{id}
     defaults: { _controller: SukaldarisInfoBundle:Info:receta }
+sukaldaris_search:
+    path:     /search
+    defaults: { _controller: SukaldarisInfoBundle:Info:search}
+sukaldaris_search_results:
+    path:     /search/{pattern}
+    defaults: { _controller: SukaldarisInfoBundle:Info:searchResults}

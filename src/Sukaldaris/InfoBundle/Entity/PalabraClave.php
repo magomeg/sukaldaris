@@ -3,6 +3,7 @@
 namespace Sukaldaris\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
 * @ORM\Entity
 * @ORM\Table(name="palabraclave")
@@ -19,9 +20,10 @@ class PalabraClave
 	protected $id;
 
 	/**
-	* @ORM\Column(type="text")
+	* @ORM\Column(type="text", unique=true, nullable=false)
+    * @Assert\NotBlank()
 	*/
-	protected $palabra;
+	protected $palabra = '';
 
     /**
      * @ORM\ManyToMany(targetEntity="Receta", inversedBy="palabras")
@@ -32,6 +34,7 @@ class PalabraClave
      */
     protected $recetas;
 
+    
     /**
      * Get id
      *
@@ -70,6 +73,7 @@ class PalabraClave
     public function __construct()
     {
         $this->recetas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->palabra = '';
     }
 
     /**
@@ -104,4 +108,13 @@ class PalabraClave
     {
         return $this->recetas;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getPalabra();
+    }
+
 }

@@ -13,7 +13,7 @@
 
 	    {{ form_widget(form) }}
 
-	    
+	       
 
 	    <p>
 
@@ -26,11 +26,13 @@
 	
 {% endblock %}
 {% block javascripts %}
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="{{ asset('js/autocomplete.js') }}"></script>
+	
 	<script>
-	    
-	    var ROOT_URL = "{{ url('sukaldaris_homepage')}}"; //your root URL, used in autocomplete-countries.js file
+	  const select = document.querySelector('.js-select2');
+	  $(select).select2({
+	    tags: true,
+	  });
 	</script>
+	
 {% endblock %}
 

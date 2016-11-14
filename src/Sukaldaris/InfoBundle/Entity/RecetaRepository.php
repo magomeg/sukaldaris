@@ -42,4 +42,19 @@ class RecetaRepository extends EntityRepository
 
 		return $paginator;
 	}
+
+	public function getRecetasLikePalabraClave($pc)
+	{
+		$query = $this->_em->createQueryBuilder('r');
+		$query
+		    ->select('r')
+		    
+		    ->leftJoin('r.palabras', 'p') // The missing join
+		    ->where('p.palabra LIKE :pc') // where p.name like %keyword% 
+		    ->setParameter('pc', '%'.$pc.'%')
+		    ->orderBy('p.palabra', 'ASC') // order by p.name ASC
+		    ->getQuery();
+
+		return $query->getResult();
+	}
 }

@@ -24,6 +24,7 @@ use Sukaldaris\InfoBundle\Form\RecetaType;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AdminController extends Controller
 {
@@ -330,5 +331,20 @@ class AdminController extends Controller
         $em->flush();
 
         return $this->redirect($this->generateUrl('sukaldaris_admin_homepage'));
+    }
+
+    /*JSON actions*/
+
+    public function palabrasJSONAction($value='')
+    {
+        $palabras = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Palabra')->getAllPalabrasClave();
+
+        $palabrasArray = $palabras->toArray();
+        $json = json_encode($palabrasArray);
+
+        $response = new JsonResponse();
+        $response->setData($json);
+
+        return $response;
     }
 }

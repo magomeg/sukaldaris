@@ -14,14 +14,14 @@ class IngredientesRecetas
 	
     /**
     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Receta", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Receta")
      * @ORM\JoinColumn(name="id_receta", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $id_receta;
 
     /**
     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Ingrediente", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Ingrediente")
      * @ORM\JoinColumn(name="id_ingrediente", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $id_ingrediente;

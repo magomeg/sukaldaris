@@ -10,13 +10,15 @@
 
 {% block body %}
 
-   
+   {% set id = 0 %}
 
     <!-- banner-bottom -->
       <div class="banner-bottom">
       <div class="about-info">
 
         <h3 class ="ghj">Recetas</h3>
+
+        
 
             <ul>
 
@@ -30,7 +32,9 @@
             {% else %}
               {% for receta in recetas %}
 
-              <li><a onClick='myFunction({{receta.Id}})'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+              {% set id = receta.Id%}
+
+              <li><a onClick='myFunction()'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
 
               {% endfor %}
 
@@ -90,15 +94,19 @@
                   
                  </ul>
             </nav>
+            {% endif %}
         </div>
       </div>
 <!-- //banner-bottom -->
 <script>
-function myFunction(id) {
+function myFunction() 
+{
+      
+      if (confirm("¿De verdad desea eliminar este elemento?") == true) 
+      {
+        
 
-      if (confirm("¿De verdad desea eliminar este elemento?") == true) {
-        var route = "{{ path(ruta, { 'id': 'PLACEHOLDER' }) }}";
-        window.location.href = route.replace("PLACEHODER", id);
+        window.location.href = "{{ path(ruta, {'id': id}) }}";
        
     } else {
         
