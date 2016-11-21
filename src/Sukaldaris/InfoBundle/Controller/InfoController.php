@@ -46,6 +46,7 @@ class InfoController extends Controller
 
     public function searchAction()
     {
+        
         return $this->render('SukaldarisInfoBundle:Info:search.html.twig');
     }
 

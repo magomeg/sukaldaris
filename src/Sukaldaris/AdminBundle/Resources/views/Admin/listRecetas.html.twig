@@ -32,9 +32,9 @@
             {% else %}
               {% for receta in recetas %}
 
-              {% set id = receta.Id%}
+              
 
-              <li><a onClick='myFunction()'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
+              <li><a onClick='myFunction({{receta.Id}})'>{{receta.Titulo}}</a> ({{receta.fechaPublicacion|date('d-m-Y')}})</li> 
 
               {% endfor %}
 
@@ -99,19 +99,19 @@
       </div>
 <!-- //banner-bottom -->
 <script>
-function myFunction() 
+function myFunction(id) 
 {
       
       if (confirm("¿De verdad desea eliminar este elemento?") == true) 
       {
         
-
-        window.location.href = "{{ path(ruta, {'id': id}) }}";
-       
-    } else {
-        
-    }
-    document.getElementById("demo").innerHTML = x;
+      var route = "{{ path(ruta, { 'id': 'recipeId' }) }}";
+      window.location = route.replace("recipeId", id);
+         
+      } else {
+          
+      }
+      document.getElementById("demo").innerHTML = x;
 }
 </script>
    

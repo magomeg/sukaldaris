@@ -27,7 +27,7 @@
     <body>
     <div class="banner-body">
         <div class="container">
-    {% block nav %}<div class="header">
+    <div class="header">
                 <div class="header-nav">
                     <nav class="navbar navbar-default">
                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,11 +44,11 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                          <ul class="nav navbar-nav">
-                            <li class="hvr-bounce-to-bottom active"><a href="{{ path('sukaldaris_info_homepage')}}">Inicio</a></li>
+                            {% block nav %}<li class="hvr-bounce-to-bottom active"><a href="{{ path('sukaldaris_info_homepage')}}">Inicio</a></li>
 
 
                             <li class="hvr-bounce-to-bottom"><a href="{{ path('sukaldaris_info_all', { 'page': 1 })}}">Ver todas las recetas</a></li>
-                            <li class="hvr-bounce-to-bottom"><a href="{{ path ('sukaldaris_search')}}">Búsqueda</a></li>
+                            <li class="hvr-bounce-to-bottom"><a href="{{ path ('sukaldaris_search')}}">Búsqueda</a></li>{% endblock %}
                           </ul>
                           <div class="sign-in">
                             <ul>
@@ -68,7 +68,7 @@
                 </script>
             <!-- //search-scripts -->
             </div>
-{% endblock %}
+
         
         <div class="header-bottom">
         {% block body %}

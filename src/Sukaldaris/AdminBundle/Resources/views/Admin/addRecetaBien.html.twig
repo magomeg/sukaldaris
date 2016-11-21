@@ -1,0 +1,55 @@
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/addReceta.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+
+
+{% block title %}Añadir una nueva receta{% endblock %}
+
+{% block body %}
+<br>
+	<h3 class="ghj">Añadir una nueva receta</h3>
+
+	<section>
+		<form action="{{ path( ruta ) }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+	    {{ form_widget(form) }}
+
+	    
+	    <script type="text/javascript">
+			$(document).ready(function() {
+			  $(".js-example-basic-single").select2();
+			});
+			</script>
+
+			<select class="js-example-basic-single">
+			  <option value="AL">Alabama</option>
+			   
+			  <option value="WY">Wyoming</option>
+			</select><script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>
+
+<select class="js-example-basic-multiple" multiple="multiple">
+  <option value="AL">Alabama</option>
+    
+  <option value="WY">Wyoming</option>
+</select>
+
+	    <p>
+
+	        <input type="submit" value="Enviar">
+
+	    </p>
+
+		</form>
+	</section>
+	
+{% endblock %}
+{% block javascripts %}
+	
+	<script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+	
+	
+{% endblock %}
+

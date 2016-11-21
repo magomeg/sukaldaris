@@ -76,3 +76,7 @@ sukaldaris_admin_delete_categoria:
 sukaldaris_json_palabras:
     path:      /palabrasJSON
     defaults: { _controller: SukaldarisAdminBundle:Admin:palabrasJSON}
+
+sukaldaris_select_palabras:
+    path:      /selectPalabras
+    defaults: { _controller: SukaldarisAdminBundle:Admin:palabrasSelect}     

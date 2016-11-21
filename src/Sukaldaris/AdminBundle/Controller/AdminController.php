@@ -347,4 +347,27 @@ class AdminController extends Controller
 
         return $response;
     }
+
+    public function palabrasSelectAction(Request $request)
+    {
+        $q = $request->get('q');
+        $pageLimit = $request->get('page_limit');
+
+        if (!is_numeric($pageLimit) || $pageLimit > 10) {
+            $pageLimit = 10;
+        }
+
+        /** @var \Doctrine\ORM\EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        $result = $em->createQuery(
+            'SELECT c.id, c.palabra as text FROM InfoBundle:PalabraClave c
+            WHERE lower(c.palabra) LIKE :q
+            ORDER BY c.palabra')
+            ->setParameter('q', '%' . $q . '%')
+            ->setMaxResults($pageLimit)
+            ->getArrayResult();
+
+        return new JsonResponse($result);
+    }
 }
