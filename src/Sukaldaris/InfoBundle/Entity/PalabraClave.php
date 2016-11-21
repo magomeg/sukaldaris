@@ -20,7 +20,7 @@ class PalabraClave
 	protected $id;
 
 	/**
-	* @ORM\Column(type="text", unique=true, nullable=false)
+	* @ORM\Column(type="text", nullable=false)
     * @Assert\NotBlank()
 	*/
 	protected $palabra = '';

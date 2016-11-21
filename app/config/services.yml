@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
+    my.custom.user_provider:
+        class:        Sukaldaris\SecurityBundle\Security\Core\User\MyFOSUBUserProvider
+        arguments: ['@fos_user.user_manager', { facebook: facebook_id, google: google_id }]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

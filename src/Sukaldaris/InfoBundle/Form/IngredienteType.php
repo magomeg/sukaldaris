@@ -24,6 +24,13 @@ class IngredienteType extends AbstractType
                 'expanded' => false,
                 'label' => 'Medida'
               ))
+            ->add('temporada', 'entity', array(
+                'class' => 'Sukaldaris\InfoBundle\Entity\Mes',
+                'property' => 'mes',
+                'multiple' => true,
+                'expanded' => true,
+                'label' => 'Temporada'
+              ))
         ;
     }
     

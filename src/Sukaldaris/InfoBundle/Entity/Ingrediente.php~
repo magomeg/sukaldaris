@@ -35,6 +35,15 @@ class Ingrediente
      */
     protected $medida;
 
+     /**
+     * @ORM\ManyToMany(targetEntity="Mes", mappedBy="id", cascade={"persist"})
+    * @ORM\JoinTable(name="temporadas",
+     *      joinColumns={@ORM\JoinColumn(name="ingrediente_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="mes_id", referencedColumnName="id")}
+     *      )
+     */
+     protected $temporada;
+
     
 
 

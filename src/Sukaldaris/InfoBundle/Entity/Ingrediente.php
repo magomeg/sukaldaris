@@ -35,6 +35,15 @@ class Ingrediente
      */
     protected $medida;
 
+     /**
+     * @ORM\ManyToMany(targetEntity="Mes", mappedBy="id", cascade={"persist"})
+     * @ORM\JoinTable(name="temporadas",
+     *      joinColumns={@ORM\JoinColumn(name="ingrediente_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="mes_id", referencedColumnName="id")}
+     *      )
+     */
+     protected $temporada;
+
     
 
 
@@ -118,5 +127,45 @@ class Ingrediente
     public function getMedida()
     {
         return $this->medida;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->temporada = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add temporada
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Mes $temporada
+     * @return Ingrediente
+     */
+    public function addTemporada(\Sukaldaris\InfoBundle\Entity\Mes $temporada)
+    {
+        $this->temporada[] = $temporada;
+
+        return $this;
+    }
+
+    /**
+     * Remove temporada
+     *
+     * @param \Sukaldaris\InfoBundle\Entity\Mes $temporada
+     */
+    public function removeTemporada(\Sukaldaris\InfoBundle\Entity\Mes $temporada)
+    {
+        $this->temporada->removeElement($temporada);
+    }
+
+    /**
+     * Get temporada
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTemporada()
+    {
+        return $this->temporada;
     }
 }

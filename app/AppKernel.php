@@ -22,6 +22,9 @@ class AppKernel extends Kernel
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Tetranz\Select2EntityBundle\TetranzSelect2EntityBundle(),
+           new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sukaldaris\SecurityBundle\SukaldarisSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
