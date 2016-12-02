@@ -2709,3 +2709,6 @@ p.lom{
 	  padding: 1.5em 0 0;
 	}
 }	
+.hidden{
+	display: none;
+}

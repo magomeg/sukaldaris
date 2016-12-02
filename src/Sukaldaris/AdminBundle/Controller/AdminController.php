@@ -39,14 +39,16 @@ class AdminController extends Controller
     public function newIngredienteAction()
     {
         $ingrediente = new Ingrediente();
-        $form   = $this->createForm(new IngredienteType(), $ingrediente);
+        $form   = $this->createForm(IngredienteType::class, $ingrediente);
         $ruta = 'sukaldaris_admin_create_ingrediente';
 
         return $this->render('SukaldarisAdminBundle:Admin:addIngrediente.html.twig', array('ingrediente' => $ingrediente,'form'   => $form->createView(), 'ruta' => $ruta));
     }
     public function newRecetaAction (){
         $receta = new Receta();
-        $form   = $this->createForm(new RecetaType(), $receta);
+
+        $form   = $this->createForm(RecetaType::class, $receta);
+
         $ruta = 'sukaldaris_admin_create_receta';
 
         return $this->render('SukaldarisAdminBundle:Admin:addReceta.html.twig', array('receta' => $receta,'form'   => $form->createView(), 'ruta' => $ruta));
@@ -54,7 +56,7 @@ class AdminController extends Controller
     public function newCategoriaAction()
     {
         $categoria = new Categoria();
-        $form   = $this->createForm(new CategoriaType(), $categoria);
+        $form   = $this->createForm(CategoriaType::class, $categoria);
         $ruta = 'sukaldaris_admin_create_categoria';
 
         return $this->render('SukaldarisAdminBundle:Admin:addCategoria.html.twig', array('categoria' => $categoria,'form'   => $form->createView(), 'ruta' => $ruta));
@@ -64,7 +66,7 @@ class AdminController extends Controller
     {
         $ingrediente= new Ingrediente();
         $request = $this->getRequest();
-        $form = $this->createForm(new IngredienteType(), $ingrediente);
+        $form = $this->createForm(IngredienteType::class, $ingrediente);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -82,7 +84,7 @@ class AdminController extends Controller
         $receta= new Receta();
        
         $request = $this->getRequest();
-        $form = $this->createForm(new RecetaType(), $receta);
+        $form = $this->createForm(RecetaType::class, $receta);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -99,17 +101,29 @@ class AdminController extends Controller
                      $fileName
                      );
             }
-           
-
-                $receta->setPath($fileName);
+            $receta->setPath($fileName);
 
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($receta);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('sukaldaris_receta', array('id' => $receta->getId())));
+            
         }
+        $id = $receta->getId();
+
+        $palabras = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:PalabraClave')->getPalabrasClaveForReceta($id);
+
+        $utensilios = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Utensilio')->getUtensiliosForReceta($id);
+
+        $tecnicas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Tecnica')->getTecnicasForReceta($id);
+
+        $ingredientesRecetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:IngredientesRecetas')->getIngredientesRecetaForReceta($id);
+
+        $pasos = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Paso')->getPasosForReceta($id);
+
+
+        return $this->render('SukaldarisInfoBundle:Info:receta.html.twig', array('receta' => $receta, 'palabras' => $palabras, 'utensilios' => $utensilios, 'tecnicas' => $tecnicas, 'ingredientesRecetas' => $ingredientesRecetas, 'pasos' => $pasos));
         
         
     }
@@ -117,7 +131,7 @@ class AdminController extends Controller
     {
         $categoria= new Categoria();
         $request = $this->getRequest();
-        $form = $this->createForm(new CategoriaType(), $categoria);
+        $form = $this->createForm(CategoriaType::class, $categoria);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -213,7 +227,7 @@ class AdminController extends Controller
     public function gotoEditIngredienteAction ($id)
     {
           $ingrediente = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->find($id);  
-        $form   = $this->createForm(new IngredienteType(), $ingrediente);
+        $form   = $this->createForm(IngredienteType::class, $ingrediente);
         $ruta = 'sukaldaris_admin_edit_ingrediente';
         
         return $this->render('SukaldarisAdminBundle:Admin:editIngrediente.html.twig', array('ingrediente' => $ingrediente,'form'   => $form->createView(), 'ruta' => $ruta));
@@ -223,7 +237,7 @@ class AdminController extends Controller
     {
         $ingrediente = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Ingrediente')->find($id);        
        $request = $this->getRequest();
-        $form = $this->createForm(new IngredienteType(), $ingrediente);
+        $form = $this->createForm(IngredienteType::class, $ingrediente);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -240,7 +254,7 @@ class AdminController extends Controller
     public function gotoEditRecetaAction ($id)
     {
           $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id);  
-        $form   = $this->createForm(new RecetaType(), $receta);
+        $form   = $this->createForm(RecetaType::class, $receta);
         $ruta = 'sukaldaris_admin_edit_receta';
         
         return $this->render('SukaldarisAdminBundle:Admin:editReceta.html.twig', array('receta' => $receta,'form'   => $form->createView(), 'ruta' => $ruta));
@@ -250,7 +264,7 @@ class AdminController extends Controller
     {
         $receta = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->find($id);        
        $request = $this->getRequest();
-        $form = $this->createForm(new RecetaType(), $receta);
+        $form = $this->createForm(RecetaType::class, $receta);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -281,7 +295,7 @@ class AdminController extends Controller
     public function gotoEditCategoriaAction ($id)
     {
           $categoria = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Categoria')->find($id);  
-        $form   = $this->createForm(new CategoriaType(), $categoria);
+        $form   = $this->createForm(CategoriaType::class, $categoria);
         $ruta = 'sukaldaris_admin_edit_categoria';
         
         return $this->render('SukaldarisAdminBundle:Admin:editCategoria.html.twig', array('categoria' => $categoria,'form'   => $form->createView(), 'ruta' => $ruta));
@@ -291,7 +305,7 @@ class AdminController extends Controller
     {
         $categoria = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Categoria')->find($id);        
        $request = $this->getRequest();
-        $form = $this->createForm(new CategoriaType(), $categoria);
+        $form = $this->createForm(CategoriaType::class, $categoria);
         $form->bind($request);
 
         if ($form->isValid()) {

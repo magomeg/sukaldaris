@@ -1,0 +1,16 @@
+{# src/Sukaldaris/AdminBundle/Resources/views/Admin/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<!-- Bootstrap core CSS -->
+    
+
+{% endblock %}
+
+{% block nav%}
+
+<li class="hvr-bounce-to-bottom active"><a href="{{ path('sukaldaris_admin_homepage')}}">Admin</a></li>
+<li class="hvr-bounce-to-bottom"><a href="{{ path('sukaldaris_info_homepage')}}">Volver a Anónimo</a></li>
+
+{% endblock %}

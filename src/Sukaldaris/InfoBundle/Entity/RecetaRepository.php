@@ -34,6 +34,27 @@ class RecetaRepository extends EntityRepository
 	   	return $paginator;
 
 	}
+	public function getRecetasForCategoria($idCategoria)
+	{
+			$query = $this->_em->createQueryBuilder('r');
+			$query
+			    ->select('r')
+			    ->where('r.id_categoria = idCategoria')
+			    ->setParameter("idCategoria", $idCategoria);
+	
+			return $query->getQuery()->getResult();
+	}
+
+	public function getRecetasForChef($idChef)
+	{
+			$query = $this->_em->createQueryBuilder('r');
+			$query
+			    ->select('r')
+			    ->where('r.id_chef = idChef')
+			    ->setParameter("idChef", $idChef);
+	
+			return $query->getQuery()->getResult();
+	}
 
 	public function paginate($dql,$page=1,$limit=20){
 		$paginator = new Paginator($dql);
@@ -57,4 +78,6 @@ class RecetaRepository extends EntityRepository
 
 		return $query->getResult();
 	}
+
+
 }

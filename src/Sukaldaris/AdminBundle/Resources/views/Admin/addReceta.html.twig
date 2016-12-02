@@ -1,34 +1,85 @@
 {# src/Sukaldaris/AdminBundle/Resources/views/Admin/addReceta.html.twig #}
 
-
-
-{% block stylesheets %}
-<link href="{{ asset('css/select2.min.css')}}" rel="stylesheet" />
-<script src="{{ asset('js/select2.min.js')}}"></script>
-<link href="{{ asset('css/bootstrap.css')}}" type="text/css" rel="stylesheet" />
-<link href="{{ asset('css/font-awesome.css')}}" type="text/css" rel="stylesheet" />
-<link href="{{ asset('css/s2-docs.css')}}" type="text/css" rel="stylesheet" />
-{% endblock %}
+{% extends "::baseAdmin.html.twig" %}
 
 
 
 {% block title %}Añadir una nueva receta{% endblock %}
 
 {% block body %}
+<br>
+  <h3 class="ghj">Añadir una nueva receta</h3>
+
+  <section>
+    <form action="{{ path( ruta ) }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+        {{ form_row(form.titulo) }}
+         <label>Palabras clave</label>
+        <ul class="tags1" data-prototype="{{ form_widget(form.palabras.vars.prototype)|e('html_attr') }}">
+              {# iterate over each existing item and render its only field: you want #}
+              {# En add se puede quitar pero si hacemos un solo form no #}
+              {% for palabra in form.palabras %}
+                  <li class="formrowprod1">{{ form_row(palabra) }}</li>
+              {% endfor %}
+          </ul>
+
+        {{ form_row(form.dificultad) }}
+        {{ form_row(form.tiempo_preparacion) }}
+        {{ form_row(form.tiempo_cocinado) }}
+        {{ form_row(form.personas) }}
+        {{ form_row(form.id_chef) }}
+        {{ form_row(form.id_categoria) }}
 
 
-	    <div class="s2-example">
-    <p>
-      <select class="js-example-tags form-control" multiple="multiple">
-        <option selected="selected">orange</option>
-        <option>white</option>
-        <option selected="selected">purple</option>
-      </select>
-    </p>
-  </div>
 
-	    
-	
+        <label>Técnicas</label>
+        <ul class="tags2" data-prototype="{{ form_widget(form.tecnicas.vars.prototype)|e('html_attr') }}">
+              {# iterate over each existing item and render its only field: you want #}
+              {# En add se puede quitar pero si hacemos un solo form no #}
+              {% for tecnica in form.tecnicas %}
+                  <li class="formrowprod2">{{ form_row(tecnica) }}</li>
+              {% endfor %}
+          </ul>
+
+         <label>Utensilios</label>
+        <ul class="tags3" data-prototype="{{ form_widget(form.utensilios.vars.prototype)|e('html_attr') }}">
+              {# iterate over each existing item and render its only field: you want #}
+              {# En add se puede quitar pero si hacemos un solo form no #}
+              {% for utensilio in form.utensilios %}
+                  <li class="formrowprod3">{{ form_widget(utensilio) }}</li>
+              {% endfor %}
+          </ul>
+
+          <label>Pasos</label>
+        <ul class="tags4" data-prototype="{{ form_widget(form.pasos.vars.prototype)|e('html_attr') }}">
+              {# iterate over each existing item and render its only field: you want #}
+              {# En add se puede quitar pero si hacemos un solo form no #}
+              {% for paso in form.pasos %}
+                  <li class="formrowprod4">{{ form_widget(paso) }}</li>
+              {% endfor %}
+          </ul>
+    
+          {{ form_row(form.path) }}
+
+          {{ form_rest(form) }}
+
+
+      <p>
+
+          <input type="submit" value="Enviar">
+
+      </p>
+
+    </form>
+  </section>
+  
 {% endblock %}
+{% block javascripts %}
 
+<script src="{{ asset ('js/embededForm2.js') }}"></script>  
+<script src="{{ asset ('js/embededForm.js') }}"></script>
+
+
+  
+{% endblock %}
 

@@ -16,11 +16,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Receta
 {
 	/**
-	* @ORM\Id
-	* @ORM\Column(type="integer")
-	* @ORM\GeneratedValue(strategy="AUTO")
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
     * @ORM\OneToMany(targetEntity="IngredientesRecetas", mappedBy="id_receta")
-	*/
+    */
 	protected $id;
 
 	/**
@@ -29,7 +29,7 @@ class Receta
 	protected $titulo;
 
 	/**
-    * @ORM\Column(type="date")
+    * @ORM\Column(type="datetimetz")
     */
     protected $fecha_publicacion;
 
@@ -112,6 +112,8 @@ class Receta
     public function __construct()
     {
         $this->palabras = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tecnicas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->utensilios = new \Doctrine\Common\Collections\ArrayCollection();
 
         $this->fecha_publicacion = new \DateTime();
     }

@@ -5,6 +5,8 @@ namespace Sukaldaris\InfoBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class PasoType extends AbstractType
 {
@@ -15,8 +17,8 @@ class PasoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numeroPaso','integer', array('label' => 'Numero de paso', 'attr' => array( 'min' => '1', 'max' => '15'))
-            ->add('texto', 'text', array('label' => 'Paso'))
+            ->add('numeroPaso',IntegerType::class, array('label' => 'Numero de paso', 'attr' => array( 'min' => '1', 'max' => '15')))
+            ->add('texto', TextType::class, array('label' => 'Paso'))
             
 
         ;
@@ -28,7 +30,7 @@ class PasoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sukaldaris\InfoBundle\Entity\Categoria'
+            'data_class' => 'Sukaldaris\InfoBundle\Entity\Paso'
         ));
     }
 }

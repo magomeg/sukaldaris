@@ -15,7 +15,7 @@ class Ingrediente
 	* @ORM\Id
 	* @ORM\Column(type="integer")
 	* @ORM\GeneratedValue(strategy="AUTO")
-    * @ORM\OneToMany(targetEntity="IngredientesRecetas", mappedBy="id_receta")
+    * @ORM\OneToMany(targetEntity="IngredientesRecetas", mappedBy="id_ingrediente")
 	*/
 	protected $id;
 

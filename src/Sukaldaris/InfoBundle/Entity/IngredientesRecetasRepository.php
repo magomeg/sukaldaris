@@ -25,5 +25,17 @@ class IngredientesRecetasRepository extends EntityRepository
     return $qb->getQuery()->getResult();
 
 	}
+    public function getIngredientesRecetaForIngrediente($idIngrediente)
+    {
+    
+    $qb = $this->createQueryBuilder("c");
+    $qb
+        ->leftjoin("c.id_ingrediente", "p")
+        ->where("p = :idIngrediente")
+        ->setParameter("idIngrediente", $idReceta);
+
+    return $qb->getQuery()->getResult();
+
+    }
 
 }

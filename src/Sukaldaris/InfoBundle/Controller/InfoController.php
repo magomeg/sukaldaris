@@ -3,6 +3,11 @@
 namespace Sukaldaris\InfoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class InfoController extends Controller
 {
@@ -12,9 +17,7 @@ class InfoController extends Controller
 
         
         return $this->render('SukaldarisInfoBundle:Info:index.html.twig', array('recetas' => $recetas)); 
-        
-
-        
+               
     }
    
     public function recetaAction($id)
@@ -38,10 +41,20 @@ class InfoController extends Controller
     {
         $recetas = $this->get('doctrine')->getManager()->getRepository('SukaldarisInfoBundle:Receta')->getRecetasAlphabeticallyOrdered($page);
 
+        $form   = $this->createFormBuilder()
+        ->add('ingrediente', EntityType::class, array('class' => 'Sukaldaris\InfoBundle\Entity\Ingrediente','property' => 'nombre','label' => 'Ingrediente', 'expanded' => false, 'required'=> false))
+             ->add('tecnica', EntityType::class, array('class' => 'Sukaldaris\InfoBundle\Entity\Tecnica','property' => 'nombre','label' => 'Tecnica', 'expanded' => false, 'required'=> false))
+             ->add('categoria', EntityType::class, array('class' => 'Sukaldaris\InfoBundle\Entity\Categoria','property' => 'categoria','label' => 'Categoria', 'expanded' => false, 'required'=> false))
+             ->add('chef', EntityType::class, array('class' => 'Sukaldaris\InfoBundle\Entity\Chef','property' => 'nombre','label' => 'Chef', 'expanded' => false, 'required'=> false))
+        
+        ->getForm()->createView();
+
+        $ruta = 'sukaldaris_admin_create_receta';
+
        $totalItems = count($recetas);
         $pagesCount = ceil($totalItems / 20);
 
-       return $this->render('SukaldarisInfoBundle:Info:all.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount));
+       return $this->render('SukaldarisInfoBundle:Info:all.html.twig', array('recetas' => $recetas, 'current' => $page, 'paginas' => $pagesCount, 'form' => $form));
     }
 
     public function searchAction()

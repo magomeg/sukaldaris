@@ -1,10 +1,9 @@
-		var $collectionHolder;
-
+		var $collectionHolder3;
 
 
 		// setup an "add" link
 
-		var $addTagLink = $('<a href="#" class="add_link">Añadir</a>');
+		var $addTagLink = $('<a href="#" class="add_link">+</a>');
 
 		var $newLinkLi = $('<li></li>').append($addTagLink);
 
@@ -12,19 +11,15 @@
 
 		jQuery(document).ready(function() {
 
-		   
-
-
-
 		    // Get the ul that holds the collection of tags
 
-		    $collectionHolder = $('ul.tags');
+		    $collectionHolder3 = $('ul.tags3');
 
-
+		    console.log('index');
 
 		    // add a delete link to all of the existing tag form li elements
 
-		    $collectionHolder.find('li.formrowprod').each(function() {
+		    $collectionHolder3.find('li.formrowprod3').each(function() {
 
 		        addTagFormDeleteLink($(this));
 
@@ -34,7 +29,7 @@
 
 		    // add the "add a tag" anchor and li to the tags ul
 
-		    $collectionHolder.append($newLinkLi);
+		    $collectionHolder3.append($newLinkLi);
 
 
 
@@ -42,7 +37,7 @@
 
 		    // index when inserting a new item (e.g. 2)
 
-		    $collectionHolder.data('index', $collectionHolder.find(':input').length);
+		    $collectionHolder3.data('index', $collectionHolder3.find(':input').length);
 
 
 
@@ -56,7 +51,7 @@
 
 		        // add a new tag form (see next code block)
 
-		        addTagForm($collectionHolder, $newLinkLi);
+		        addTagForm($collectionHolder3, $newLinkLi);
 
 		    });
 
@@ -64,17 +59,17 @@
 
 
 
-		function addTagForm($collectionHolder, $newLinkLi) {
+		function addTagForm($collectionHolder3, $newLinkLi) {
 
 	    // Get the data-prototype explained earlier
 
-		    var prototype = $collectionHolder.data('prototype');
+		    var prototype = $collectionHolder3.data('prototype');
 
 
 
 		    // get the new index
 
-		    var index = $collectionHolder.data('index');
+		    var index = $collectionHolder3.data('index');
 
 
 
@@ -88,7 +83,7 @@
 
 		    // increase the index with one for the next item
 
-		    $collectionHolder.data('index', index + 1);
+		    $collectionHolder3.data('index', index + 1);
 
 
 
@@ -112,7 +107,7 @@
 
 		function addTagFormDeleteLink($tagFormLi) {
 
-		    var $removeFormA = $('<a href="#">Borrar este</a>');
+		    var $removeFormA = $('<a href="#">X</a>');
 
 		    $tagFormLi.append($removeFormA);
 

@@ -11,9 +11,31 @@
 {% block body %}
 
    
-
+  
     <!-- banner-bottom -->
       <div class="banner-bottom">
+
+        <p class="button" onclick="toggle_visibility('hideMe')">Filtros</p>
+        <div id="hideMe">
+
+        <section>
+          <form action="{{path('sukaldaris_receta', { 'id': 2 }) }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+            {{ form_widget(form) }}
+
+            
+            <p>
+
+                <input type="submit" value="Filtrar">
+
+            </p>
+
+          </form>
+        </section>
+
+        </div>
+
+       
         <div class="about-info">
 
         <h3 class ="ghj">Todas las recetas</h3>
@@ -75,7 +97,19 @@
    
 {% endblock %}
 {% block javascripts %}
-
-    
+<script>
+function toggle_visibility(id) 
+{
+    var e = document.getElementById(id);
+    if (e.style.display == 'block' || e.style.display=='')
+    {
+        e.style.display = 'none';
+    }
+    else 
+    {
+        e.style.display = 'block';
+    }
+}
+ </script>   
 
   {% endblock %}

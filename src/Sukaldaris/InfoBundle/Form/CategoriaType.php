@@ -5,6 +5,8 @@ namespace Sukaldaris\InfoBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class CategoriaType extends AbstractType
 {
@@ -15,7 +17,7 @@ class CategoriaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categoria','text', array('label' => 'Nombre de la categoria'))
+            ->add('categoria',TextType::class, array('label' => 'Nombre de la categoria'))
         ;
     }
     

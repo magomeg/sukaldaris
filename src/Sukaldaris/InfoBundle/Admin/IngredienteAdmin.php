@@ -1,24 +1,19 @@
 <?php
+namespace Sukaldaris\InfoBundle\Admin;
 
-namespace Sukaldaris\InfoBundle\Form;
-
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
-class IngredienteType extends AbstractType
+class IngredienteAdmin extends AbstractAdmin
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder
-            ->add('nombre', TextType::class, array('label' => 'Nombre', ))
+        $formMapper ->add('nombre', TextType::class, array('label' => 'Nombre', ))
             ->add('precio',IntegerType::class, array('label' => 'Precio por unidad','required' => false, 'attr' => array('step' => 0.01, 'min' => 0)))
             ->add('medida',EntityType::class, array(
                 'class' => 'Sukaldaris\InfoBundle\Entity\Subconcept',
@@ -36,14 +31,15 @@ class IngredienteType extends AbstractType
               ))
         ;
     }
-    
-    /**
-     * @param OptionsResolver $resolver
-     */
-    public function configureOptions(OptionsResolver $resolver)
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Sukaldaris\InfoBundle\Entity\Ingrediente'
-        ));
+        $datagridMapper->add('nombre');
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('nombre');
     }
 }
+?>
