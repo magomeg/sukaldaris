@@ -78,6 +78,7 @@ genemu_form:
     select2:    ~
 
 assetic:
+    bundles: [ "FOSCommentBundle" ]
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
@@ -93,7 +94,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Sukaldaris\SecurityBundle\Entity\User
-
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Sukaldaris\InfoBundle\Entity\Comment
+            thread: Sukaldaris\InfoBundle\Entity\Thread
+    
 sonata_block:
     default_contexts: [cms]
     blocks:

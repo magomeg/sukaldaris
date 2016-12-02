@@ -9,7 +9,7 @@
             <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
             <link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
             <!-- js -->
-            <script src="{{ asset('js/jquery-3.1.1.min.js')}}"></script>
+            <script src="{{ asset('js/jquery-1.11.1.min.js')}}"></script>
             <!-- //js -->
             <!-- start-smoth-scrolling -->
            
@@ -69,13 +69,7 @@
                     </nav>
                 </div>
     
-            <!-- search-scripts -->
-            <script src="js/classie.js"></script>
-            <script src="js/uisearch.js"></script>
-                <script>
-                    new UISearch( document.getElementById( 'sb-search' ) );
-                </script>
-            <!-- //search-scripts -->
+            
             </div>
 
         
@@ -88,7 +82,7 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
         {% endblock %}
 
   

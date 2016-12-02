@@ -24,6 +24,9 @@ class AppKernel extends Kernel
             new Tetranz\Select2EntityBundle\TetranzSelect2EntityBundle(),
            //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Sukaldaris\SecurityBundle\SukaldarisSecurityBundle(),
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),

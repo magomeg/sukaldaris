@@ -13,6 +13,16 @@ services:
         arguments: [~, Sukaldaris\InfoBundle\Entity\Ingrediente, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Ingrediente }
+    admin.categoria:
+        class: Sukaldaris\InfoBundle\Admin\CategoriaAdmin
+        arguments: [~, Sukaldaris\InfoBundle\Entity\Categoria, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Categoria }
+    admin.receta:
+        class: Sukaldaris\InfoBundle\Admin\RecetaAdmin
+        arguments: [~, Sukaldaris\InfoBundle\Entity\Receta, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Receta }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
